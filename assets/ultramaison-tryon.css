@@ -1,3 +1,4 @@
+
 .um-tryon {
   margin: 24px 0;
 }
@@ -37,8 +38,9 @@
 .um-tryon-modal__stage {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   overflow: hidden;
+  background: #050814;
 }
 
 .um-tryon-modal video {
@@ -50,53 +52,115 @@
   transform: scaleX(-1);
 }
 
+/* RELOJ: nunca deformar */
 .um-tryon-modal__watch {
-  position: absolute;
-  z-index: 3;
+  position: absolute !important;
+  z-index: 4;
+
   left: 50%;
-  top: 50%;
-  width: 160px;
-  max-width: 36vw;
-  transform: translate(-50%, -50%);
+  top: 58%;
+
+  width: 92px !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  aspect-ratio: auto !important;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-8deg);
+
+  transform-origin: center center;
+
   pointer-events: none;
   display: none;
 }
 
+/* Cabecera */
 .um-tryon-modal__topbar {
   position: absolute;
   z-index: 10;
   top: 0;
   left: 0;
   right: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+
+  padding:
+    max(18px, env(safe-area-inset-top))
+    18px
+    24px;
+
   color: #fff;
-  background: linear-gradient(to bottom, rgba(0,0,0,.6), transparent);
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.62),
+      rgba(0,0,0,0)
+    );
+}
+
+.um-tryon-modal__topbar span {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .02em;
 }
 
 .um-tryon-modal__close {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+
   border: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,.15);
+
+  background: rgba(0,0,0,.32);
+  backdrop-filter: blur(8px);
+
   color: #fff;
-  font-size: 24px;
+  font-size: 27px;
+  line-height: 1;
+
   cursor: pointer;
 }
 
+/* Guía inferior */
 .um-tryon-modal__guide {
   position: absolute;
   z-index: 8;
+
   left: 50%;
-  bottom: 30px;
+  bottom: max(24px, env(safe-area-inset-bottom));
+
   transform: translateX(-50%);
-  width: min(90%, 420px);
+
+  width: calc(100% - 36px);
+  max-width: 420px;
+
   padding: 14px 18px;
+
+  border-radius: 12px;
+
   color: #fff;
-  background: rgba(5,8,20,.7);
+  background: rgba(5,8,20,.70);
+
+  backdrop-filter: blur(12px);
+
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Mobile */
+@media screen and (max-width: 749px) {
+  .um-tryon-modal__watch {
+    width: 84px !important;
+  }
 }

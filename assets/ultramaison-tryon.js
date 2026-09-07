@@ -28,6 +28,10 @@ class UltramaisonTryOn {
 
       this.video.srcObject = this.stream;
       await this.video.play();
+      this.watch.style.width = '84px';
+      this.watch.style.height = 'auto';
+      this.watch.style.maxWidth = 'none';
+      this.watch.style.maxHeight = 'none';
       this.watch.style.display = 'block';
     } catch (error) {
       console.error('Try-On camera error:', error);

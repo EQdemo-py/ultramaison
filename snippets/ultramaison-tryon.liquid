@@ -1,10 +1,17 @@
-{% assign tryon_image = product.metafields.custom.tryon_image.value %}
+{% liquid
+  assign tryon_image = product.metafields.custom.tryon_image.value
+
+  if tryon_image == blank
+    assign tryon_image = product.metafields.custom.imagen_para_probador_virtual.value
+  endif
+%}
 
 {% if tryon_image != blank %}
   {{ 'ultramaison-tryon.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'ultramaison-tryon.js' | asset_url }}" defer></script>
 
   <div class="um-tryon" data-ultramaison-tryon>
+
     <button
       type="button"
       class="um-tryon__button"
@@ -17,15 +24,27 @@
       Usá la cámara para visualizar este reloj en tu muñeca.
     </p>
 
-    <div class="um-tryon-modal" data-tryon-modal>
+    <div
+      class="um-tryon-modal"
+      data-tryon-modal
+      aria-hidden="true"
+    >
       <div class="um-tryon-modal__stage">
-        <video data-tryon-video autoplay playsinline muted></video>
+
+        <video
+          data-tryon-video
+          autoplay
+          playsinline
+          muted
+        ></video>
 
         <img
           class="um-tryon-modal__watch"
           data-tryon-watch
-          src="{{ tryon_image | image_url: width: 800 }}"
+          src="{{ tryon_image | image_url: width: 1000 }}"
           alt="{{ product.title | escape }}"
+          width="1000"
+          height="1000"
         >
 
         <div class="um-tryon-modal__topbar">
@@ -35,6 +54,7 @@
             type="button"
             class="um-tryon-modal__close"
             data-tryon-close
+            aria-label="Cerrar probador virtual"
           >
             ×
           </button>
@@ -43,7 +63,21 @@
         <div class="um-tryon-modal__guide">
           Colocá tu muñeca frente a la cámara
         </div>
+
       </div>
     </div>
+
   </div>
+
+{% elsif request.design_mode %}
+
+  <div style="
+    margin:20px 0;
+    padding:14px;
+    border:1px dashed #0d1d4f;
+    font-size:12px;
+  ">
+    ULTRAMAISON Try-On activo, pero no encuentra la imagen del metacampo.
+  </div>
+
 {% endif %}

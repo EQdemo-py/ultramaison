@@ -1492,3 +1492,148 @@ a.product__text {
     border: none;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM
+   Experiencia editorial / boutique de relojería
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Área principal más amplia y editorial */
+  product-info .page-width {
+    max-width: 1480px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* Layout boutique: producto protagonista + ficha equilibrada */
+  product-info .product--large:not(.product--no-media) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+    column-gap: clamp(64px, 7vw, 120px);
+    align-items: start;
+  }
+
+  product-info .product--large:not(.product--no-media) .product__media-wrapper,
+  product-info .product--large:not(.product--no-media) .product__info-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+
+  product-info .product--large:not(.product--no-media) .product__info-wrapper {
+    padding: 28px 0 0;
+  }
+
+  /* Ficha de producto */
+  product-info .product__info-container {
+    max-width: 520px;
+  }
+
+  /* Marca / eyebrow */
+  product-info .product__text {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .72;
+  }
+
+  /* Nombre del reloj */
+  product-info .product__title {
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+
+  product-info .product__title h1 {
+    font-size: clamp(36px, 3vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    font-weight: 400;
+  }
+
+  /* Precio */
+  product-info .price--large {
+    font-size: 21px;
+    letter-spacing: .02em;
+  }
+
+  /* Descripción más editorial */
+  product-info .product__description {
+    max-width: 470px;
+    line-height: 1.75;
+    font-size: 15px;
+    opacity: .82;
+  }
+
+  /* Cantidad */
+  product-info .product-form__quantity {
+    margin-top: 24px;
+  }
+
+  /* Botones con más presencia */
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 54px;
+    letter-spacing: .03em;
+  }
+
+  /* Galería */
+  product-info .product__media-wrapper {
+    position: relative;
+  }
+
+  product-info .product__media-list {
+    margin-bottom: 18px;
+  }
+
+  /* Miniaturas más refinadas */
+  product-info .thumbnail-list {
+    gap: 12px;
+  }
+
+  product-info .thumbnail {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+}
+
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  product-info .product__info-wrapper {
+    padding: 0 20px;
+  }
+
+  product-info .product__info-container {
+    max-width: none;
+  }
+
+  product-info .product__title h1 {
+    font-size: 32px;
+    line-height: 1.08;
+    letter-spacing: -.015em;
+  }
+
+  product-info .product__description {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 52px;
+  }
+
+}

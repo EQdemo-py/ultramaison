@@ -20,7 +20,13 @@
 
   <script src="{{ 'ultramaison-tryon.js' | asset_url }}" defer></script>
 
-  <div class="um-tryon" data-ultramaison-tryon>
+  {% assign tryon_diameter = product.metafields.custom.diametro_de_caja_mm.value | default: 40 %}
+
+  <div
+    class="um-tryon"
+    data-ultramaison-tryon
+    data-watch-diameter="{{ tryon_diameter }}"
+  >
 
     <button
       type="button"

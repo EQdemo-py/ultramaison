@@ -57,19 +57,33 @@
   position: absolute !important;
   z-index: 4;
 
-  width: 120px;
+  width: 140px;
   height: auto !important;
 
+  min-width: 0 !important;
   max-width: none !important;
   max-height: none !important;
 
   object-fit: contain !important;
+
   transform-origin: center center;
 
   pointer-events: none;
-  display: none;
 
-  will-change: left, top, width, transform;
+  display: none;
+  opacity: 0;
+
+  transition: opacity .15s ease;
+
+  will-change:
+    left,
+    top,
+    width,
+    transform,
+    opacity;
+
+  filter:
+    drop-shadow(0 5px 8px rgba(0,0,0,.20));
 }
 
 /* Cabecera */

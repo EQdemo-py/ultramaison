@@ -8,15 +8,20 @@ class UltramaisonTryOn {
     this.watch = root.querySelector('[data-tryon-watch]');
     this.guide = root.querySelector('.um-tryon-modal__guide');
 
+    this.diameter = Number(root.dataset.watchDiameter || 40);
+
     this.stream = null;
     this.handLandmarker = null;
     this.running = false;
     this.lastVideoTime = -1;
 
-    this.smoothedX = null;
-    this.smoothedY = null;
-    this.smoothedScale = null;
-    this.smoothedAngle = null;
+    this.state = {
+      x: null,
+      y: null,
+      width: null,
+      angle: null,
+      squash: null
+    };
 
     this.button?.addEventListener('click', () => this.open());
     this.closeButton?.addEventListener('click', () => this.close());
@@ -42,15 +47,16 @@ class UltramaisonTryOn {
         },
         runningMode: 'VIDEO',
         numHands: 1,
-        minHandDetectionConfidence: 0.55,
-        minHandPresenceConfidence: 0.55,
-        minTrackingConfidence: 0.5
+        minHandDetectionConfidence: 0.65,
+        minHandPresenceConfidence: 0.65,
+        minTrackingConfidence: 0.60
       });
   }
 
   async open() {
     this.modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    this.watch.style.display = 'none';
 
     try {
       this.guide.textContent = 'Preparando cámara...';
@@ -72,13 +78,19 @@ class UltramaisonTryOn {
       await this.initHandTracking();
 
       this.running = true;
-      this.guide.textContent = 'Mostrá tu mano completa y mantené la muñeca visible';
+
+      this.guide.textContent =
+        'Mostrá la mano completa y dejá visible la muñeca';
 
       requestAnimationFrame(() => this.detectLoop());
 
     } catch (error) {
       console.error('ULTRAMAISON Try-On:', error);
-      alert('No pudimos iniciar el probador virtual. Revisá los permisos de cámara.');
+
+      alert(
+        'No pudimos iniciar el probador virtual. Revisá los permisos de cámara.'
+      );
+
       this.close();
     }
   }
@@ -97,114 +109,182 @@ class UltramaisonTryOn {
         performance.now()
       );
 
-      if (result.landmarks && result.landmarks.length > 0) {
+      if (result.landmarks?.length) {
         this.placeWatch(result.landmarks[0]);
       } else {
-        this.watch.style.display = 'none';
+        this.watch.style.opacity = '0';
+
         this.guide.textContent =
-          'Mostrá tu mano completa y mantené la muñeca visible';
+          'Mostrá la mano completa y mantené visible la muñeca';
       }
     }
 
     requestAnimationFrame(() => this.detectLoop());
   }
 
-  placeWatch(landmarks) {
-    const wrist = landmarks[0];
-    const indexMcp = landmarks[5];
-    const pinkyMcp = landmarks[17];
-    const middleMcp = landmarks[9];
+  distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  smooth(current, target, amount = 0.20) {
+    if (current === null) return target;
+
+    return current + (target - current) * amount;
+  }
+
+  placeWatch(lm) {
+    const wrist = lm[0];
+
+    const indexMcp = lm[5];
+    const middleMcp = lm[9];
+    const pinkyMcp = lm[17];
+
+    const indexPip = lm[6];
+    const pinkyPip = lm[18];
 
     const stage = this.modal.querySelector('.um-tryon-modal__stage');
     const rect = stage.getBoundingClientRect();
 
     /*
-      MediaPipe:
-      x/y son coordenadas normalizadas 0–1.
-      Como usamos cámara trasera, no invertimos X.
-    */
-    const x = wrist.x * rect.width;
-    const y = wrist.y * rect.height;
+     * Ancho de palma real en pantalla.
+     */
+    const palmWidthNorm = this.distance(indexMcp, pinkyMcp);
+    const palmWidthPx = palmWidthNorm * rect.width;
 
     /*
-      Ancho visual de la mano entre índice y meñique.
-      Nos sirve como referencia para escalar el reloj.
-    */
-    const handDx = indexMcp.x - pinkyMcp.x;
-    const handDy = indexMcp.y - pinkyMcp.y;
-    const handWidthNorm = Math.sqrt(
-      handDx * handDx + handDy * handDy
+     * Dirección muñeca -> centro de palma.
+     */
+    const vx = middleMcp.x - wrist.x;
+    const vy = middleMcp.y - wrist.y;
+
+    const vectorLength =
+      Math.sqrt(vx * vx + vy * vy) || 0.0001;
+
+    const ux = vx / vectorLength;
+    const uy = vy / vectorLength;
+
+    /*
+     * Colocamos el reloj hacia el antebrazo.
+     *
+     * MediaPipe landmark 0 está en la unión mano/muñeca.
+     * Un reloj real queda detrás de ese punto.
+     */
+    const wristShift = palmWidthPx * 0.46;
+
+    const wristX =
+      wrist.x * rect.width - ux * wristShift;
+
+    const wristY =
+      wrist.y * rect.height - uy * wristShift;
+
+    /*
+     * Escala.
+     *
+     * Una palma adulta ronda aproximadamente 75-90 mm.
+     * Tomamos 82 mm como referencia visual.
+     *
+     * 42mm / 82mm ≈ 0.51.
+     */
+    const referencePalmMM = 82;
+
+    const caseRatio =
+      this.diameter / referencePalmMM;
+
+    /*
+     * Nuestra imagen todavía incluye correa.
+     * La caja ocupa aproximadamente ~60% del ancho visual.
+     *
+     * Compensamos para que la CAJA tenga el diámetro correcto.
+     */
+    const imageFaceFactor = 0.60;
+
+    let targetWidth =
+      (palmWidthPx * caseRatio) / imageFaceFactor;
+
+    /*
+     * Límites de seguridad.
+     */
+    const minWidth = rect.width * 0.18;
+    const maxWidth = rect.width * 0.38;
+
+    targetWidth = Math.min(
+      Math.max(targetWidth, minWidth),
+      maxWidth
     );
 
     /*
-      Escala del reloj.
-      Queremos que la caja ocupe aprox. 70–80% del ancho
-      superior de la muñeca.
-    */
-    let watchWidth = handWidthNorm * rect.width * 0.82;
-
-    watchWidth = Math.max(85, Math.min(watchWidth, 190));
-
-    /*
-      Dirección desde muñeca hacia centro de la palma.
-    */
-    const dx = middleMcp.x - wrist.x;
-    const dy = middleMcp.y - wrist.y;
-
+     * Rotación del brazo.
+     *
+     * Imagen del reloj está orientada verticalmente.
+     */
     const angle =
-      Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      Math.atan2(vy, vx) * 180 / Math.PI + 90;
 
     /*
-      Desplazamos ligeramente hacia el antebrazo para
-      que la caja no quede en la palma.
-    */
-    const offset = watchWidth * 0.38;
+     * Perspectiva aproximada.
+     *
+     * Si la palma se inclina, reducimos horizontalmente
+     * el reloj para que no parezca siempre completamente plano.
+     */
+    const upperPalmWidth =
+      this.distance(indexPip, pinkyPip);
 
-    const length = Math.sqrt(dx * dx + dy * dy) || 1;
+    const perspectiveRatio =
+      upperPalmWidth > 0
+        ? palmWidthNorm / upperPalmWidth
+        : 1;
 
-    const ux = dx / length;
-    const uy = dy / length;
+    let squash =
+      1 / Math.max(0.85, Math.min(perspectiveRatio, 1.4));
 
-    const targetX = x - ux * offset;
-    const targetY = y - uy * offset;
+    squash =
+      Math.max(0.72, Math.min(squash, 1));
 
     /*
-      Suavizado para evitar vibraciones.
-    */
-    const smoothing = 0.28;
+     * Suavizado.
+     */
+    this.state.x =
+      this.smooth(this.state.x, wristX, 0.22);
 
-    this.smoothedX =
-      this.smoothedX === null
-        ? targetX
-        : this.smoothedX + (targetX - this.smoothedX) * smoothing;
+    this.state.y =
+      this.smooth(this.state.y, wristY, 0.22);
 
-    this.smoothedY =
-      this.smoothedY === null
-        ? targetY
-        : this.smoothedY + (targetY - this.smoothedY) * smoothing;
+    this.state.width =
+      this.smooth(this.state.width, targetWidth, 0.18);
 
-    this.smoothedScale =
-      this.smoothedScale === null
-        ? watchWidth
-        : this.smoothedScale +
-          (watchWidth - this.smoothedScale) * smoothing;
+    this.state.angle =
+      this.smooth(this.state.angle, angle, 0.18);
 
-    this.smoothedAngle =
-      this.smoothedAngle === null
-        ? angle
-        : this.smoothedAngle +
-          (angle - this.smoothedAngle) * smoothing;
+    this.state.squash =
+      this.smooth(this.state.squash, squash, 0.15);
 
+    /*
+     * Render final.
+     */
     this.watch.style.display = 'block';
-    this.watch.style.left = `${this.smoothedX}px`;
-    this.watch.style.top = `${this.smoothedY}px`;
-    this.watch.style.width = `${this.smoothedScale}px`;
+    this.watch.style.opacity = '1';
+
+    this.watch.style.left =
+      `${this.state.x}px`;
+
+    this.watch.style.top =
+      `${this.state.y}px`;
+
+    this.watch.style.width =
+      `${this.state.width}px`;
+
     this.watch.style.height = 'auto';
 
     this.watch.style.transform =
-      `translate(-50%, -50%) rotate(${this.smoothedAngle}deg)`;
+      `translate(-50%, -50%)
+       rotate(${this.state.angle}deg)
+       scaleX(${this.state.squash})`;
 
-    this.guide.textContent = 'Mové suavemente la muñeca';
+    this.guide.textContent =
+      `${this.diameter} mm · Mové suavemente la muñeca`;
   }
 
   close() {
@@ -218,16 +298,18 @@ class UltramaisonTryOn {
       this.stream = null;
     }
 
-    if (this.video) {
-      this.video.srcObject = null;
-    }
+    this.video.srcObject = null;
 
     this.watch.style.display = 'none';
+    this.watch.style.opacity = '0';
 
-    this.smoothedX = null;
-    this.smoothedY = null;
-    this.smoothedScale = null;
-    this.smoothedAngle = null;
+    this.state = {
+      x: null,
+      y: null,
+      width: null,
+      angle: null,
+      squash: null
+    };
   }
 }
 

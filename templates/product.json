@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -44,10 +53,16 @@
           "type": "description",
           "settings": {}
         },
+        "custom_liquid_FwGnLR": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.diametro_de_caja_mm.value != blank %}\n  <div class=\"um-watch-size\">\n    <span class=\"um-watch-size__label\">TAMAÑO DE CAJA</span>\n\n    <div class=\"um-watch-size__value\">\n      {{ product.metafields.custom.diametro_de_caja_mm.value }}\n      <span>mm</span>\n    </div>\n\n    <div class=\"um-watch-size__line\"></div>\n\n    <p class=\"um-watch-size__help\">\n      Diámetro de la caja del reloj\n    </p>\n  </div>\n\n  <style>\n    .um-watch-size {\n      margin: 20px 0;\n      padding: 18px 20px;\n      border: 1px solid rgba(0,0,0,.12);\n    }\n\n    .um-watch-size__label {\n      display: block;\n      margin-bottom: 7px;\n      font-size: 11px;\n      letter-spacing: .18em;\n      font-weight: 600;\n    }\n\n    .um-watch-size__value {\n      font-size: 30px;\n      line-height: 1;\n      font-weight: 500;\n    }\n\n    .um-watch-size__value span {\n      font-size: 15px;\n      font-weight: 400;\n    }\n\n    .um-watch-size__line {\n      width: 32px;\n      height: 1px;\n      background: currentColor;\n      margin: 13px 0 10px;\n      opacity: .35;\n    }\n\n    .um-watch-size__help {\n      margin: 0;\n      font-size: 12px;\n      opacity: .65;\n    }\n  </style>\n{% endif %}"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": "Compartir"
           }
         }
       },
@@ -60,6 +75,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "custom_liquid_FwGnLR",
         "share"
       ],
       "settings": {
@@ -69,13 +85,24 @@
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 60,
         "padding_bottom": 60
+      }
+    },
+    "disclosures": {
+      "type": "disclosures",
+      "settings": {
+        "heading": "Divulgaciones",
+        "heading_size": "h2",
+        "open_by_default": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
       }
     },
     "related-products": {
@@ -85,22 +112,15 @@
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 60
-      }
-    },
-    "disclosures": {
-      "type": "disclosures",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 0
       }
     }
   },

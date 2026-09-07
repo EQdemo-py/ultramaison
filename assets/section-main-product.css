@@ -1956,3 +1956,70 @@ product-info {
     font-size: 10px;
   }
 }
+
+
+/* ULTRAMAISON — PDP FINAL PROPORTIONS */
+
+@media screen and (min-width: 990px) {
+
+  product-info .page-width {
+    max-width: 1460px;
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+
+  product-info .product--large:not(.product--no-media) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    column-gap: clamp(70px, 6vw, 100px);
+  }
+
+  product-info .product__info-container {
+    max-width: 590px;
+    padding-top: 28px;
+  }
+
+  product-info .product__title h1 {
+    max-width: 560px;
+    font-size: clamp(42px, 3vw, 56px);
+    line-height: 1.02;
+  }
+
+  product-info .price--large {
+    font-size: 23px;
+  }
+
+  product-info .product__description {
+    max-width: 540px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  product-info .um-watch-size__eyebrow {
+    font-size: 10px;
+  }
+
+  product-info .um-watch-size__value {
+    font-size: 32px;
+  }
+
+  product-info .um-watch-size__description {
+    font-size: 11px;
+  }
+
+  product-info .product-form__quantity {
+    margin-top: 22px;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 58px !important;
+  }
+
+  product-info .um-pdp-benefit strong {
+    font-size: 10px;
+  }
+
+  product-info .um-pdp-benefit span {
+    font-size: 10px;
+  }
+}

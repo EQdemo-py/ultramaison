@@ -58,3 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
     .querySelectorAll('[data-ultramaison-tryon]')
     .forEach(el => new UltramaisonTryOn(el));
 });
+
+// Shopify resync marker

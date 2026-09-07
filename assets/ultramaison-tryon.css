@@ -1,0 +1,132 @@
+.um-tryon {
+  margin: 24px 0;
+}
+
+.um-tryon__button {
+  width: 100%;
+  min-height: 56px;
+  border: 1px solid #0d1d4f;
+  background: #0d1d4f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.um-tryon__note {
+  margin: 8px 0 0;
+  color: #747b89;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.um-tryon-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  background: #050814;
+}
+
+.um-tryon-modal.is-open {
+  display: block;
+}
+
+.um-tryon-modal__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.um-tryon-modal video,
+.um-tryon-modal canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.um-tryon-modal video {
+  transform: scaleX(-1);
+}
+
+.um-tryon-modal canvas {
+  pointer-events: none;
+}
+
+.um-tryon-modal__watch {
+  position: absolute;
+  z-index: 3;
+  width: 150px;
+  max-width: 35vw;
+  transform-origin: center;
+  pointer-events: none;
+  display: none;
+}
+
+.um-tryon-modal__topbar {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0,0,0,.55), transparent);
+}
+
+.um-tryon-modal__title {
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.um-tryon-modal__close {
+  border: 0;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.um-tryon-modal__guide {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+  width: min(90%, 420px);
+  padding: 14px 18px;
+  color: #fff;
+  background: rgba(5,8,20,.65);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.um-tryon-modal__error {
+  display: none;
+  position: absolute;
+  z-index: 12;
+  inset: 0;
+  place-items: center;
+  padding: 30px;
+  color: #fff;
+  background: #050814;
+  text-align: center;
+}
+
+.um-tryon-modal__error.is-visible {
+  display: grid;
+}

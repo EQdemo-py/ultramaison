@@ -64,6 +64,10 @@
           "settings": {
             "share_label": "Compartir producto"
           }
+        },
+        "virtual_try_on": {
+          "type": "virtual_try_on",
+          "settings": {}
         }
       },
       "block_order": [
@@ -73,6 +77,7 @@
         "price",
         "description",
         "custom_liquid_JpB6Yj",
+        "virtual_try_on",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",

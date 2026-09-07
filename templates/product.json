@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -22,6 +31,16 @@
           "type": "price",
           "settings": {}
         },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "custom_liquid_JpB6Yj": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% assign size = product.metafields.custom.diametro_de_caja_mm.value %}\n\n{% if size != blank %}\n  {% assign min_size = 28 %}\n  {% assign max_size = 46 %}\n\n  {% assign normalized = size | minus: min_size %}\n  {% assign range = max_size | minus: min_size %}\n  {% assign position = normalized | times: 100 | divided_by: range %}\n\n  {% if position < 0 %}\n    {% assign position = 0 %}\n  {% elsif position > 100 %}\n    {% assign position = 100 %}\n  {% endif %}\n\n  {% if size <= 34 %}\n    {% assign size_label = 'Compacto' %}\n  {% elsif size <= 40 %}\n    {% assign size_label = 'Mediano' %}\n  {% else %}\n    {% assign size_label = 'Grande' %}\n  {% endif %}\n\n  <div class=\"um-watch-size\">\n    <div class=\"um-watch-size__top\">\n      <div>\n        <span class=\"um-watch-size__eyebrow\">TAMAÑO DE CAJA</span>\n\n        <div class=\"um-watch-size__value\">\n          {{ size }} <span>mm</span>\n        </div>\n      </div>\n\n      <span class=\"um-watch-size__category\">\n        {{ size_label }}\n      </span>\n    </div>\n\n    <p class=\"um-watch-size__description\">\n      Diámetro de la caja del reloj\n    </p>\n\n    <div class=\"um-watch-size__scale\">\n      <div class=\"um-watch-size__track\">\n        <span\n          class=\"um-watch-size__marker\"\n          style=\"left: {{ position }}%;\"\n        ></span>\n      </div>\n\n      <div class=\"um-watch-size__labels\">\n        <span>28 mm</span>\n        <span>34 mm</span>\n        <span>40 mm</span>\n        <span>46 mm</span>\n      </div>\n    </div>\n\n    <div class=\"um-watch-size__legend\">\n      <span>Compacto</span>\n      <span>Mediano</span>\n      <span>Grande</span>\n    </div>\n  </div>\n\n  <style>\n    .um-watch-size {\n      margin: 28px 0 24px;\n      padding: 20px 0;\n      border-top: 1px solid rgba(13, 29, 79, .12);\n      border-bottom: 1px solid rgba(13, 29, 79, .12);\n    }\n\n    .um-watch-size__top {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      gap: 20px;\n    }\n\n    .um-watch-size__eyebrow {\n      display: block;\n      margin-bottom: 7px;\n      color: #67718a;\n      font-size: 9px;\n      font-weight: 600;\n      letter-spacing: .2em;\n    }\n\n    .um-watch-size__value {\n      color: #0d1d4f;\n      font-size: 28px;\n      line-height: 1;\n      font-weight: 400;\n    }\n\n    .um-watch-size__value span {\n      font-size: 13px;\n    }\n\n    .um-watch-size__category {\n      color: #0d1d4f;\n      font-size: 10px;\n      font-weight: 600;\n      letter-spacing: .14em;\n      text-transform: uppercase;\n    }\n\n    .um-watch-size__description {\n      margin: 7px 0 18px;\n      color: #747b89;\n      font-size: 11px;\n    }\n\n    .um-watch-size__track {\n      position: relative;\n      height: 1px;\n      background: rgba(13, 29, 79, .18);\n    }\n\n    .um-watch-size__track::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 1px;\n      width: {{ position }}%;\n      background: #0d1d4f;\n    }\n\n    .um-watch-size__marker {\n      position: absolute;\n      top: 50%;\n      width: 10px;\n      height: 10px;\n      border: 1px solid #0d1d4f;\n      border-radius: 50%;\n      background: #f6f4ef;\n      transform: translate(-50%, -50%);\n    }\n\n    .um-watch-size__labels {\n      display: flex;\n      justify-content: space-between;\n      margin-top: 8px;\n      color: #8a909c;\n      font-size: 9px;\n    }\n\n    .um-watch-size__legend {\n      display: flex;\n      justify-content: space-between;\n      margin-top: 14px;\n      padding-top: 12px;\n      border-top: 1px solid rgba(13, 29, 79, .08);\n      color: #747b89;\n      font-size: 9px;\n      letter-spacing: .08em;\n      text-transform: uppercase;\n    }\n\n    @media screen and (max-width: 749px) {\n      .um-watch-size {\n        margin: 22px 0;\n      }\n\n      .um-watch-size__value {\n        font-size: 26px;\n      }\n    }\n  </style>\n{% endif %}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -40,10 +59,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -57,6 +72,7 @@
         "rating",
         "price",
         "description",
+        "custom_liquid_JpB6Yj",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
@@ -64,18 +80,29 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 32,
         "padding_bottom": 48
+      }
+    },
+    "disclosures": {
+      "type": "disclosures",
+      "settings": {
+        "heading": "Divulgaciones",
+        "heading_size": "h2",
+        "open_by_default": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
       }
     },
     "related-products": {
@@ -85,22 +112,15 @@
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 60
-      }
-    },
-    "disclosures": {
-      "type": "disclosures",
-      "settings": {
-        "padding_top": 36,
-        "padding_bottom": 0
       }
     }
   },

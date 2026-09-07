@@ -169,3 +169,37 @@
     width: 84px !important;
   }
 }
+
+/* ======================================================
+   ULTRAMAISON AR V3
+   WebGL / Three.js
+   ====================================================== */
+
+.um-tryon-modal__watch {
+  display: none !important;
+}
+
+.um-tryon-modal__ar-canvas {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.um-tryon-modal video {
+  z-index: 1;
+}
+
+.um-tryon-modal__topbar {
+  z-index: 20;
+}
+
+.um-tryon-modal__guide {
+  z-index: 20;
+}

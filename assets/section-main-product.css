@@ -1837,3 +1837,122 @@ product-info {
   }
 }
 
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM DETAILS
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  product-info .product__title h1 {
+    max-width: 500px;
+    font-size: clamp(40px, 2.8vw, 54px);
+    line-height: 1.02;
+  }
+
+  product-info .um-watch-size {
+    margin: 28px 0 24px;
+    padding: 20px 0;
+  }
+
+  product-info .um-watch-size__top {
+    align-items: center;
+  }
+
+  product-info .um-watch-size__value {
+    color: #0d1d4f;
+    font-size: 28px;
+  }
+
+  product-info .um-watch-size__category {
+    color: #0d1d4f;
+    font-size: 10px;
+    letter-spacing: .14em;
+  }
+
+  product-info .um-watch-size__description {
+    margin-bottom: 18px;
+    color: #6a7080;
+    font-size: 11px;
+  }
+
+  product-info .product-form__submit {
+    min-height: 56px;
+    border-radius: 2px;
+    font-size: 10px;
+    letter-spacing: .16em;
+  }
+
+  product-info .shopify-payment-button__button {
+    min-height: 56px !important;
+    border-radius: 2px !important;
+    font-size: 10px !important;
+    letter-spacing: .16em !important;
+  }
+
+  product-info .um-pdp-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 24px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit {
+    padding: 0 14px;
+    text-align: center;
+  }
+
+  product-info .um-pdp-benefit + .um-pdp-benefit {
+    border-left: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #0d1d4f;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  product-info .um-pdp-benefit span {
+    display: block;
+    color: #747b89;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+  product-info .um-pdp-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit {
+    padding: 14px 0;
+  }
+
+  product-info .um-pdp-benefit + .um-pdp-benefit {
+    border-top: 1px solid rgba(13, 29, 79, .10);
+  }
+
+  product-info .um-pdp-benefit strong {
+    display: block;
+    color: #0d1d4f;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  product-info .um-pdp-benefit span {
+    color: #747b89;
+    font-size: 10px;
+  }
+}

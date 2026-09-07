@@ -52,33 +52,24 @@
   transform: none;
 }
 
-/* RELOJ: nunca deformar */
+/* RELOJ — controlado por tracking de muñeca */
 .um-tryon-modal__watch {
   position: absolute !important;
   z-index: 4;
 
-  left: 50%;
-  top: 58%;
-
-  width: 92px !important;
+  width: 120px;
   height: auto !important;
 
   max-width: none !important;
   max-height: none !important;
 
   object-fit: contain !important;
-  object-position: center !important;
-
-  aspect-ratio: auto !important;
-
-  transform:
-    translate(-50%, -50%)
-    rotate(-8deg);
-
   transform-origin: center center;
 
   pointer-events: none;
   display: none;
+
+  will-change: left, top, width, transform;
 }
 
 /* Cabecera */

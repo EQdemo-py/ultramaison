@@ -8,6 +8,16 @@
 
 {% if tryon_image != blank %}
   {{ 'ultramaison-tryon.css' | asset_url | stylesheet_tag }}
+  <script type="module">
+    import {
+      HandLandmarker,
+      FilesetResolver
+    } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/+esm";
+
+    window.UMHandLandmarker = HandLandmarker;
+    window.UMFilesetResolver = FilesetResolver;
+  </script>
+
   <script src="{{ 'ultramaison-tryon.js' | asset_url }}" defer></script>
 
   <div class="um-tryon" data-ultramaison-tryon>

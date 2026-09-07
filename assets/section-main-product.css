@@ -1492,3 +1492,534 @@ a.product__text {
     border: none;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM
+   Experiencia editorial / boutique de relojería
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Área principal más amplia y editorial */
+  product-info .page-width {
+    max-width: 1480px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  /* Layout boutique: producto protagonista + ficha equilibrada */
+  product-info .product--large:not(.product--no-media) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+    column-gap: clamp(64px, 7vw, 120px);
+    align-items: start;
+  }
+
+  product-info .product--large:not(.product--no-media) .product__media-wrapper,
+  product-info .product--large:not(.product--no-media) .product__info-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+
+  product-info .product--large:not(.product--no-media) .product__info-wrapper {
+    padding: 28px 0 0;
+  }
+
+  /* Ficha de producto */
+  product-info .product__info-container {
+    max-width: 520px;
+  }
+
+  /* Marca / eyebrow */
+  product-info .product__text {
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .72;
+  }
+
+  /* Nombre del reloj */
+  product-info .product__title {
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+
+  product-info .product__title h1 {
+    font-size: clamp(36px, 3vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    font-weight: 400;
+  }
+
+  /* Precio */
+  product-info .price--large {
+    font-size: 21px;
+    letter-spacing: .02em;
+  }
+
+  /* Descripción más editorial */
+  product-info .product__description {
+    max-width: 470px;
+    line-height: 1.75;
+    font-size: 15px;
+    opacity: .82;
+  }
+
+  /* Cantidad */
+  product-info .product-form__quantity {
+    margin-top: 24px;
+  }
+
+  /* Botones con más presencia */
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 54px;
+    letter-spacing: .03em;
+  }
+
+  /* Galería */
+  product-info .product__media-wrapper {
+    position: relative;
+  }
+
+  product-info .product__media-list {
+    margin-bottom: 18px;
+  }
+
+  /* Miniaturas más refinadas */
+  product-info .thumbnail-list {
+    gap: 12px;
+  }
+
+  product-info .thumbnail {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+}
+
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  product-info .product__info-wrapper {
+    padding: 0 20px;
+  }
+
+  product-info .product__info-container {
+    max-width: none;
+  }
+
+  product-info .product__title h1 {
+    font-size: 32px;
+    line-height: 1.08;
+    letter-spacing: -.015em;
+  }
+
+  product-info .product__description {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 52px;
+  }
+
+}
+
+/* =========================================================
+   ULTRAMAISON — PDP SALON PREMIUM V2
+   ========================================================= */
+
+product-info {
+  background: #f6f4ef;
+}
+
+@media screen and (min-width: 990px) {
+
+  product-info .page-width {
+    max-width: 1540px;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  product-info .product--large:not(.product--no-media) {
+    grid-template-columns: minmax(0, 1.18fr) minmax(440px, .82fr);
+    column-gap: clamp(72px, 7vw, 132px);
+  }
+
+  /* Galería estilo editorial */
+  product-info .product__media-wrapper {
+    padding-top: 8px;
+  }
+
+  product-info .product__media-item {
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  product-info .global-media-settings {
+    border: 0;
+    background: transparent;
+  }
+
+  /* Panel derecho tipo boutique */
+  product-info .product__info-wrapper {
+    padding: 0 !important;
+  }
+
+  product-info .product__info-container {
+    max-width: 540px;
+    padding: 42px 0 0;
+  }
+
+  /* Marca */
+  product-info .product__text {
+    margin: 0 0 14px;
+    color: #67718a;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .24em;
+  }
+
+  /* Título */
+  product-info .product__title {
+    margin: 0 0 20px;
+  }
+
+  product-info .product__title h1 {
+    margin: 0;
+    color: #0d1d4f;
+    font-size: clamp(42px, 3.2vw, 58px);
+    line-height: .98;
+    font-weight: 400;
+    letter-spacing: -.035em;
+  }
+
+  /* Precio */
+  product-info [id^="price-"] {
+    margin: 0 0 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(13, 29, 79, .14);
+  }
+
+  product-info .price--large {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  /* Descripción */
+  product-info .product__description {
+    margin: 0 0 30px;
+    color: #5f6675;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  product-info .product__description strong {
+    color: #20283b;
+    font-weight: 600;
+  }
+
+  /* Cantidad */
+  product-info .product-form__quantity {
+    margin: 0 0 22px;
+    padding-top: 4px;
+  }
+
+  product-info .quantity {
+    min-height: 48px;
+  }
+
+  /* CTA principal */
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit {
+    min-height: 58px;
+    border-radius: 0;
+    border: 1px solid #0d1d4f;
+    background: transparent;
+    color: #0d1d4f;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 11px;
+  }
+
+  product-info .shopify-payment-button__button {
+    min-height: 58px !important;
+    border-radius: 0 !important;
+    background: #0d1d4f !important;
+    text-transform: uppercase !important;
+    letter-spacing: .12em !important;
+    font-size: 11px !important;
+  }
+
+  /* Separación premium entre bloques */
+  product-info .product__info-container > * + * {
+    margin-top: 20px;
+  }
+
+  /* Tamaño de caja integrado visualmente */
+  product-info .um-watch-size {
+    margin-top: 32px;
+    padding: 24px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+    background: transparent;
+  }
+
+  /* Compartir discreto */
+  product-info .share-button {
+    opacity: .55;
+    font-size: 11px;
+  }
+
+  /* Thumbnails estilo galería */
+  product-info .thumbnail-list {
+    margin-top: 16px;
+    gap: 10px;
+  }
+
+  product-info .thumbnail {
+    border: 1px solid rgba(13, 29, 79, .12);
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+  product-info {
+    background: #f6f4ef;
+  }
+
+  product-info .product__info-wrapper {
+    padding: 24px 20px 0;
+  }
+
+  product-info .product__title h1 {
+    color: #0d1d4f;
+    font-size: 38px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  product-info [id^="price-"] {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 56px !important;
+    border-radius: 0 !important;
+  }
+
+  product-info .um-watch-size {
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+/* =========================================================
+   ULTRAMAISON — PDP PREMIUM DETAILS
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  product-info .product__title h1 {
+    max-width: 500px;
+    font-size: clamp(40px, 2.8vw, 54px);
+    line-height: 1.02;
+  }
+
+  product-info .um-watch-size {
+    margin: 28px 0 24px;
+    padding: 20px 0;
+  }
+
+  product-info .um-watch-size__top {
+    align-items: center;
+  }
+
+  product-info .um-watch-size__value {
+    color: #0d1d4f;
+    font-size: 28px;
+  }
+
+  product-info .um-watch-size__category {
+    color: #0d1d4f;
+    font-size: 10px;
+    letter-spacing: .14em;
+  }
+
+  product-info .um-watch-size__description {
+    margin-bottom: 18px;
+    color: #6a7080;
+    font-size: 11px;
+  }
+
+  product-info .product-form__submit {
+    min-height: 56px;
+    border-radius: 2px;
+    font-size: 10px;
+    letter-spacing: .16em;
+  }
+
+  product-info .shopify-payment-button__button {
+    min-height: 56px !important;
+    border-radius: 2px !important;
+    font-size: 10px !important;
+    letter-spacing: .16em !important;
+  }
+
+  product-info .um-pdp-benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 24px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit {
+    padding: 0 14px;
+    text-align: center;
+  }
+
+  product-info .um-pdp-benefit + .um-pdp-benefit {
+    border-left: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #0d1d4f;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  product-info .um-pdp-benefit span {
+    display: block;
+    color: #747b89;
+    font-size: 10px;
+    line-height: 1.45;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+  product-info .um-pdp-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .um-pdp-benefit {
+    padding: 14px 0;
+  }
+
+  product-info .um-pdp-benefit + .um-pdp-benefit {
+    border-top: 1px solid rgba(13, 29, 79, .10);
+  }
+
+  product-info .um-pdp-benefit strong {
+    display: block;
+    color: #0d1d4f;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  product-info .um-pdp-benefit span {
+    color: #747b89;
+    font-size: 10px;
+  }
+}
+
+
+/* ULTRAMAISON — PDP FINAL PROPORTIONS */
+
+@media screen and (min-width: 990px) {
+
+  product-info .page-width {
+    max-width: 1460px;
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+
+  product-info .product--large:not(.product--no-media) {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+    column-gap: clamp(70px, 6vw, 100px);
+  }
+
+  product-info .product__info-container {
+    max-width: 590px;
+    padding-top: 28px;
+  }
+
+  product-info .product__title h1 {
+    max-width: 560px;
+    font-size: clamp(42px, 3vw, 56px);
+    line-height: 1.02;
+  }
+
+  product-info .price--large {
+    font-size: 23px;
+  }
+
+  product-info .product__description {
+    max-width: 540px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  product-info .um-watch-size__eyebrow {
+    font-size: 10px;
+  }
+
+  product-info .um-watch-size__value {
+    font-size: 32px;
+  }
+
+  product-info .um-watch-size__description {
+    font-size: 11px;
+  }
+
+  product-info .product-form__quantity {
+    margin-top: 22px;
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 58px !important;
+  }
+
+  product-info .um-pdp-benefit strong {
+    font-size: 10px;
+  }
+
+  product-info .um-pdp-benefit span {
+    font-size: 10px;
+  }
+}

@@ -210,7 +210,6 @@
                   </p>
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
-                {%- when 'virtual_try_on' -%}
                   {% render 'ultramaison-tryon', product: product %}
                 {%- when 'collapsible_tab' -%}
                   <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
@@ -979,11 +978,6 @@
           "default": "t:sections.main-product.blocks.share.settings.text.default"
         }
       ]
-    },
-    {
-      "type": "virtual_try_on",
-      "name": "ULTRAMAISON — Probador virtual",
-      "limit": 1
     },
     {
       "type": "custom_liquid",

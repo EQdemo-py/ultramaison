@@ -1637,3 +1637,203 @@ a.product__text {
   }
 
 }
+
+/* =========================================================
+   ULTRAMAISON — PDP SALON PREMIUM V2
+   ========================================================= */
+
+product-info {
+  background: #f6f4ef;
+}
+
+@media screen and (min-width: 990px) {
+
+  product-info .page-width {
+    max-width: 1540px;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  product-info .product--large:not(.product--no-media) {
+    grid-template-columns: minmax(0, 1.18fr) minmax(440px, .82fr);
+    column-gap: clamp(72px, 7vw, 132px);
+  }
+
+  /* Galería estilo editorial */
+  product-info .product__media-wrapper {
+    padding-top: 8px;
+  }
+
+  product-info .product__media-item {
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  product-info .global-media-settings {
+    border: 0;
+    background: transparent;
+  }
+
+  /* Panel derecho tipo boutique */
+  product-info .product__info-wrapper {
+    padding: 0 !important;
+  }
+
+  product-info .product__info-container {
+    max-width: 540px;
+    padding: 42px 0 0;
+  }
+
+  /* Marca */
+  product-info .product__text {
+    margin: 0 0 14px;
+    color: #67718a;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .24em;
+  }
+
+  /* Título */
+  product-info .product__title {
+    margin: 0 0 20px;
+  }
+
+  product-info .product__title h1 {
+    margin: 0;
+    color: #0d1d4f;
+    font-size: clamp(42px, 3.2vw, 58px);
+    line-height: .98;
+    font-weight: 400;
+    letter-spacing: -.035em;
+  }
+
+  /* Precio */
+  product-info [id^="price-"] {
+    margin: 0 0 30px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(13, 29, 79, .14);
+  }
+
+  product-info .price--large {
+    color: #111827;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  /* Descripción */
+  product-info .product__description {
+    margin: 0 0 30px;
+    color: #5f6675;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  product-info .product__description strong {
+    color: #20283b;
+    font-weight: 600;
+  }
+
+  /* Cantidad */
+  product-info .product-form__quantity {
+    margin: 0 0 22px;
+    padding-top: 4px;
+  }
+
+  product-info .quantity {
+    min-height: 48px;
+  }
+
+  /* CTA principal */
+  product-info .product-form__buttons {
+    max-width: none;
+  }
+
+  product-info .product-form__submit {
+    min-height: 58px;
+    border-radius: 0;
+    border: 1px solid #0d1d4f;
+    background: transparent;
+    color: #0d1d4f;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 11px;
+  }
+
+  product-info .shopify-payment-button__button {
+    min-height: 58px !important;
+    border-radius: 0 !important;
+    background: #0d1d4f !important;
+    text-transform: uppercase !important;
+    letter-spacing: .12em !important;
+    font-size: 11px !important;
+  }
+
+  /* Separación premium entre bloques */
+  product-info .product__info-container > * + * {
+    margin-top: 20px;
+  }
+
+  /* Tamaño de caja integrado visualmente */
+  product-info .um-watch-size {
+    margin-top: 32px;
+    padding: 24px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(13, 29, 79, .12);
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+    background: transparent;
+  }
+
+  /* Compartir discreto */
+  product-info .share-button {
+    opacity: .55;
+    font-size: 11px;
+  }
+
+  /* Thumbnails estilo galería */
+  product-info .thumbnail-list {
+    margin-top: 16px;
+    gap: 10px;
+  }
+
+  product-info .thumbnail {
+    border: 1px solid rgba(13, 29, 79, .12);
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+  product-info {
+    background: #f6f4ef;
+  }
+
+  product-info .product__info-wrapper {
+    padding: 24px 20px 0;
+  }
+
+  product-info .product__title h1 {
+    color: #0d1d4f;
+    font-size: 38px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  product-info [id^="price-"] {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(13, 29, 79, .12);
+  }
+
+  product-info .product-form__submit,
+  product-info .shopify-payment-button__button {
+    min-height: 56px !important;
+    border-radius: 0 !important;
+  }
+
+  product-info .um-watch-size {
+    background: transparent;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+

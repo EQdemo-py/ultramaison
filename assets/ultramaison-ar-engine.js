@@ -145,14 +145,16 @@ class UltramaisonTryOnV4 {
       Retrocedemos ligeramente hacia el antebrazo.
     */
     /*
-      Ajuste del centro visual del reloj.
-      Reducimos el retroceso desde el pliegue de la muñeca
-      para evitar que el reloj quede demasiado cerca del puño.
-    */
-    const offset = palmWidth * .20;
+      Centro visual del reloj.
 
-    const x = wrist.x - ux * offset;
-    const y = wrist.y - uy * offset;
+      MediaPipe landmark 0 está en el pliegue de la muñeca.
+      El centro de la caja debe quedar ligeramente del lado
+      de la mano y no desplazado hacia la manga/antebrazo.
+    */
+    const offset = palmWidth * .12;
+
+    const x = wrist.x + ux * offset;
+    const y = wrist.y + uy * offset;
 
     /*
       Escala basada en diámetro real del producto.

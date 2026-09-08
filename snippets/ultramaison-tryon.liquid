@@ -13,6 +13,48 @@
     src="{{ 'ultramaison-ar-engine.js' | asset_url }}"
   ></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-ultramaison-tryon]').forEach(function(root) {
+        var openButton = root.querySelector('[data-tryon-open]');
+        var modal = root.querySelector('[data-tryon-modal]');
+        var closeButton = root.querySelector('[data-tryon-close]');
+        var guide = root.querySelector('.um-tryon-modal__guide');
+
+        if (!openButton || !modal) return;
+
+        openButton.addEventListener('click', function () {
+          modal.classList.add('is-open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+
+          if (guide) {
+            guide.textContent = 'AR V3 UI activa · preparando motor 3D...';
+          }
+
+          window.dispatchEvent(
+            new CustomEvent('ultramaison:ar-open', {
+              detail: { root: root }
+            })
+          );
+        });
+
+        closeButton?.addEventListener('click', function () {
+          modal.classList.remove('is-open');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+
+          window.dispatchEvent(
+            new CustomEvent('ultramaison:ar-close', {
+              detail: { root: root }
+            })
+          );
+        });
+      });
+    });
+  </script>
+
+
   {% assign tryon_diameter = product.metafields.custom.diametro_de_caja_mm.value | default: 40 %}
 
   <div

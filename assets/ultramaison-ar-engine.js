@@ -155,7 +155,16 @@ class UltramaisonTryOnV4 {
       para que el desplazamiento sea proporcional al tamaño
       y a la distancia de la mano frente a la cámara.
     */
-    const wristOffset = len * .22;
+    /*
+      Centro anatómico de la caja.
+
+      Landmark 0 representa la unión mano-muñeca.
+      El centro de un reloj real queda más atrás sobre el
+      antebrazo, no directamente sobre el pliegue.
+
+      0.38 de wrist->middleMCP aproxima mejor esa posición.
+    */
+    const wristOffset = len * .38;
 
     const x = wrist.x - ux * wristOffset;
     const y = wrist.y - uy * wristOffset;

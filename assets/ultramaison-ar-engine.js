@@ -145,16 +145,20 @@ class UltramaisonTryOnV4 {
       Retrocedemos ligeramente hacia el antebrazo.
     */
     /*
-      Centro visual del reloj.
+      Posición anatómica del reloj.
 
-      MediaPipe landmark 0 está en el pliegue de la muñeca.
-      El centro de la caja debe quedar ligeramente del lado
-      de la mano y no desplazado hacia la manga/antebrazo.
+      El landmark 0 marca la unión mano-muñeca.
+      Un reloj real se coloca del lado del antebrazo,
+      inmediatamente después del pliegue de la muñeca.
+
+      Usamos la longitud wrist -> middleMCP como referencia
+      para que el desplazamiento sea proporcional al tamaño
+      y a la distancia de la mano frente a la cámara.
     */
-    const offset = palmWidth * .12;
+    const wristOffset = len * .22;
 
-    const x = wrist.x + ux * offset;
-    const y = wrist.y + uy * offset;
+    const x = wrist.x - ux * wristOffset;
+    const y = wrist.y - uy * wristOffset;
 
     /*
       Escala basada en diámetro real del producto.

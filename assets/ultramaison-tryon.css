@@ -203,3 +203,44 @@
 .um-tryon-modal__guide {
   z-index: 20;
 }
+
+/* ======================================================
+   ULTRAMAISON TRY-ON V4
+   ====================================================== */
+
+.um-tryon-modal__watch {
+  display: block !important;
+  position: absolute !important;
+  z-index: 6 !important;
+  opacity: 0 !important;
+  width: 80px;
+  height: auto !important;
+  transform-origin: center center;
+  pointer-events: none;
+  transition: opacity .12s ease;
+  will-change: left, top, width, transform;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,.22));
+}
+
+.um-tryon-modal__watch.is-visible {
+  opacity: 1 !important;
+}
+
+.um-tryon-modal__ar-canvas {
+  display: none !important;
+}
+
+.um-tryon-modal__guide {
+  width: auto;
+  max-width: calc(100% - 48px);
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(5,8,20,.55);
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+
+.um-tryon-modal__topbar {
+  padding-left: 20px;
+  padding-right: 20px;
+}

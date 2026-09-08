@@ -144,7 +144,12 @@ class UltramaisonTryOnV4 {
       Landmark 0 está en el pliegue de la muñeca.
       Retrocedemos ligeramente hacia el antebrazo.
     */
-    const offset = palmWidth * .28;
+    /*
+      Ajuste del centro visual del reloj.
+      Reducimos el retroceso desde el pliegue de la muñeca
+      para evitar que el reloj quede demasiado cerca del puño.
+    */
+    const offset = palmWidth * .20;
 
     const x = wrist.x - ux * offset;
     const y = wrist.y - uy * offset;
@@ -153,10 +158,21 @@ class UltramaisonTryOnV4 {
       Escala basada en diámetro real del producto.
       82 mm = referencia aproximada de palma MCP.
     */
+    /*
+      La caja del reloj ocupa aprox. 60% del ancho visible
+      del PNG transparente. Compensamos el ancho completo
+      para que el diámetro real de la caja coincida mejor
+      con la muñeca.
+    */
+    const WATCH_FACE_FACTOR = 0.60;
+
+    const caseWidthPx =
+      palmWidth * (this.diameter / 82);
+
     const width = this.clamp(
-      palmWidth * (this.diameter / 82) * 1.04,
-      42,
-      190
+      caseWidthPx / WATCH_FACE_FACTOR,
+      70,
+      240
     );
 
     const angle =
@@ -178,13 +194,13 @@ class UltramaisonTryOnV4 {
         Math.hypot(w9.x-w0.x, w9.y-w0.y) || .05;
 
       tiltY = this.clamp(
-        ((w5.z-w17.z)/across)*34,
-        -28, 28
+        ((w5.z-w17.z)/across)*20,
+        -18, 18
       );
 
       tiltX = this.clamp(
-        (-(w9.z-w0.z)/forward)*28,
-        -24, 24
+        (-(w9.z-w0.z)/forward)*16,
+        -14, 14
       );
     }
 

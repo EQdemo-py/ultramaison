@@ -163,45 +163,14 @@
   line-height: 1.4;
 }
 
-/* Mobile */
+/* Mobile
+   El ancho del reloj lo controla dinámicamente el motor AR.
+   No fijar width con !important.
+*/
 @media screen and (max-width: 749px) {
   .um-tryon-modal__watch {
-    width: 84px !important;
+    max-width: none !important;
   }
-}
-
-/* ======================================================
-   ULTRAMAISON AR V3
-   WebGL / Three.js
-   ====================================================== */
-
-.um-tryon-modal__watch {
-  display: none !important;
-}
-
-.um-tryon-modal__ar-canvas {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 5;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-}
-
-.um-tryon-modal video {
-  z-index: 1;
-}
-
-.um-tryon-modal__topbar {
-  z-index: 20;
-}
-
-.um-tryon-modal__guide {
-  z-index: 20;
 }
 
 /* ======================================================

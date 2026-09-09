@@ -4864,3 +4864,67 @@ details-disclosure > details {
 /* =========================================================
    FIN DESKTOP CARRUSEL FULL WIDTH REAL
    ========================================================= */
+
+/* =========================================================
+   ULTRAMAISON — PRODUCT CARDS PREMIUM
+   Bordes suaves + profundidad sutil
+   ========================================================= */
+
+.product-grid .card-wrapper .card__inner,
+.slider .card-wrapper .card__inner {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(13, 29, 79, 0.08);
+  box-shadow: 0 6px 20px rgba(13, 29, 79, 0.045);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product-grid .card-wrapper:hover .card__inner,
+.slider .card-wrapper:hover .card__inner {
+  transform: translateY(-3px);
+  border-color: rgba(13, 29, 79, 0.14);
+  box-shadow: 0 12px 28px rgba(13, 29, 79, 0.08);
+}
+
+/* Mantener la fotografía limpia dentro del borde */
+.product-grid .card__media,
+.product-grid .card__media .media,
+.slider .card__media,
+.slider .card__media .media {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+/* Zoom muy leve, estilo editorial */
+.product-grid .card__media img,
+.slider .card__media img {
+  transition: transform 0.5s cubic-bezier(.22,.61,.36,1);
+}
+
+@media screen and (min-width: 750px) {
+  .product-grid .card-wrapper:hover .card__media img,
+  .slider .card-wrapper:hover .card__media img {
+    transform: scale(1.018);
+  }
+}
+
+/* Más aire entre fotografía e información */
+.product-grid .card__content,
+.slider .card__content {
+  padding-top: 12px;
+}
+
+/* Mobile: radio un poco menor */
+@media screen and (max-width: 749px) {
+  .product-grid .card-wrapper .card__inner,
+  .slider .card-wrapper .card__inner,
+  .product-grid .card__media,
+  .product-grid .card__media .media,
+  .slider .card__media,
+  .slider .card__media .media {
+    border-radius: 8px !important;
+  }
+}

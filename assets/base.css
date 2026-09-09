@@ -4928,3 +4928,31 @@ details-disclosure > details {
     border-radius: 8px !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — CORRECCIÓN FLECHA CARRUSEL PRODUCTOS
+   Evita que la navegación corte la última tarjeta
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+  .collection .slider-buttons,
+  .featured-collection .slider-buttons {
+    overflow: visible !important;
+  }
+
+  .collection .slider-button--next,
+  .featured-collection .slider-button--next {
+    right: -22px !important;
+    transform: translateX(50%) !important;
+  }
+
+  .collection .slider,
+  .featured-collection .slider {
+    overflow: visible !important;
+  }
+
+  .collection .slider__slide,
+  .featured-collection .slider__slide {
+    overflow: visible !important;
+  }
+}

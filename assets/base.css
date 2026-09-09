@@ -4993,3 +4993,61 @@ details-disclosure > details {
     overflow: visible !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — 4 PRODUCTOS COMPLETOS + GUTTER DE NAVEGACIÓN
+   Desktop 100% zoom
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Espacio usable del carrusel */
+  .ultramaison-featured slider-component.slider-component-desktop {
+    padding-right: 0 !important;
+    overflow: visible !important;
+  }
+
+  /*
+    Dawn calcula los slides casi hasta el borde derecho.
+    Reducimos ligeramente cada card para reservar
+    un gutter real de navegación.
+  */
+  .ultramaison-featured
+  .slider--desktop.grid--4-col-desktop
+  > .grid__item {
+    width: calc(
+      (100% - var(--desktop-margin-left-first-item) - 7rem) / 4
+      - var(--grid-desktop-horizontal-spacing) * 3
+    ) !important;
+  }
+
+  /* Crear aire después del cuarto producto visible */
+  .ultramaison-featured .slider--desktop {
+    padding-right: 7rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Navegación en el gutter, nunca encima de la fotografía */
+  .ultramaison-featured
+  slider-component.slider-component-desktop
+  > .slider-buttons {
+    position: absolute !important;
+    right: 1.2rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 4.8rem !important;
+    z-index: 30 !important;
+  }
+
+  .ultramaison-featured
+  slider-component.slider-component-desktop
+  > .slider-buttons
+  .slider-button--next {
+    width: 4.4rem !important;
+    height: 4.4rem !important;
+    background: #fff !important;
+    border: 1px solid rgba(13, 29, 79, .14) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 6px 20px rgba(13, 29, 79, .10) !important;
+  }
+}

@@ -64,19 +64,19 @@
         "padding_bottom": 20
       }
     },
-    "featured_collection_fNHXKB": {
+    "featured_collection_tj9EQN": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "frontpage",
-        "products_to_show": 25,
+        "products_to_show": 5,
         "title": "Colección destacada",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 3,
-        "enable_desktop_slider": false,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
@@ -98,6 +98,6 @@
     "main",
     "rich_text_Yaq7px",
     "video_DeP3hp",
-    "featured_collection_fNHXKB"
+    "featured_collection_tj9EQN"
   ]
 }

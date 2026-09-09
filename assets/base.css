@@ -4956,3 +4956,40 @@ details-disclosure > details {
     overflow: visible !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — ESPACIO REAL PARA ÚLTIMA TARJETA
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Reservar espacio a la derecha para que la última card no quede cortada */
+  .featured-collection .slider-component,
+  .collection .slider-component {
+    padding-right: 54px !important;
+    overflow: visible !important;
+  }
+
+  /* La grilla/carrusel puede respirar dentro del espacio reservado */
+  .featured-collection .slider,
+  .collection .slider {
+    overflow: visible !important;
+  }
+
+  /* La flecha queda por fuera de la tarjeta */
+  .featured-collection .slider-button--next,
+  .collection .slider-button--next {
+    position: absolute !important;
+    right: 6px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+  }
+
+  /* Evitar que el último slide se recorte */
+  .featured-collection .slider__slide:last-child,
+  .collection .slider__slide:last-child {
+    margin-right: 0 !important;
+    overflow: visible !important;
+  }
+}

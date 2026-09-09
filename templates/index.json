@@ -130,7 +130,7 @@
         "description": "",
         "show_description": false,
         "description_style": "subtitle",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "enable_desktop_slider": true,
         "full_width": false,
         "show_view_all": false,

@@ -18,24 +18,6 @@
       {{ 'american_express' | payment_type_svg_tag }}
     </div>
 
-    {% if images['pse.svg'] %}
-      <div class="um-payment-logo um-payment-logo--custom">
-        {{ 'pse.svg' | asset_url | image_tag: alt: 'PSE' }}
-      </div>
-    {% endif %}
-
-    {% if images['nequi.svg'] %}
-      <div class="um-payment-logo um-payment-logo--custom">
-        {{ 'nequi.svg' | asset_url | image_tag: alt: 'Nequi' }}
-      </div>
-    {% endif %}
-
-    {% if images['addi.svg'] %}
-      <div class="um-payment-logo um-payment-logo--custom">
-        {{ 'addi.svg' | asset_url | image_tag: alt: 'Addi' }}
-      </div>
-    {% endif %}
-
   </div>
 
   <div class="um-payment-trust__list">

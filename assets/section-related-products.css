@@ -102,3 +102,19 @@
     font-size: 1.3rem !important;
   }
 }
+
+/* ULTRAMAISON — eliminar hueco visual entre PDP y relacionados */
+@media screen and (min-width: 990px) {
+  .related-products {
+    margin-top: -8rem !important;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .related-products {
+    margin-top: 0 !important;
+  }
+}
+

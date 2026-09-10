@@ -41,6 +41,15 @@
           "type": "description",
           "settings": {}
         },
+        "collapsible_tab_HQViKX": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Especificaciones técnicas",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -73,6 +82,7 @@
         "sku_dTp76t",
         "price",
         "description",
+        "collapsible_tab_HQViKX",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
@@ -83,7 +93,7 @@
         "color_scheme": "scheme-1",
         "media_size": "large",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
+        "media_fit": "cover",
         "gallery_layout": "thumbnail_slider",
         "mobile_thumbnails": "hide",
         "media_position": "left",

@@ -1,0 +1,53 @@
+{% liquid
+  assign um_diameter = product.metafields.custom.diametro_de_caja_mm.value
+  assign um_water = product.metafields.custom.resistencia_al_agua_m.value
+  assign um_crystal = product.metafields.custom.tipo_de_cristal.value
+  assign um_movement = product.metafields.custom.movimiento.value
+
+  assign um_has_specs = false
+
+  if um_diameter != blank or um_water != blank or um_crystal != blank or um_movement != blank
+    assign um_has_specs = true
+  endif
+%}
+
+{% if um_has_specs %}
+  <div class="um-watch-essentials">
+
+    <div class="um-watch-essentials__header">
+      <span>LO ESENCIAL DE ESTA PIEZA</span>
+    </div>
+
+    <div class="um-watch-essentials__grid">
+
+      {% if um_diameter != blank %}
+        <div class="um-watch-essential">
+          <strong>{{ um_diameter }} mm</strong>
+          <span>Tamaño de caja</span>
+        </div>
+      {% endif %}
+
+      {% if um_water != blank %}
+        <div class="um-watch-essential">
+          <strong>{{ um_water }} m</strong>
+          <span>Resistencia al agua</span>
+        </div>
+      {% endif %}
+
+      {% if um_crystal != blank %}
+        <div class="um-watch-essential">
+          <strong>{{ um_crystal }}</strong>
+          <span>Cristal</span>
+        </div>
+      {% endif %}
+
+      {% if um_movement != blank %}
+        <div class="um-watch-essential">
+          <strong>{{ um_movement }}</strong>
+          <span>Movimiento</span>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% endif %}

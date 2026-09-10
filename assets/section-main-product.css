@@ -2704,3 +2704,130 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — LIGHTBOX GLASS PREMIUM
+   Fondo transparente + blur + producto enfocado
+   ========================================================= */
+
+.product-media-modal {
+  background: rgba(5, 10, 22, 0.58) !important;
+  backdrop-filter: blur(22px) brightness(0.55) saturate(0.85) !important;
+  -webkit-backdrop-filter: blur(22px) brightness(0.55) saturate(0.85) !important;
+}
+
+.product-media-modal__dialog,
+.product-media-modal__content {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+.product-media-modal__content {
+  width: 100% !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Ocultar todas excepto la seleccionada */
+.product-media-modal__content > * {
+  display: none !important;
+}
+
+.product-media-modal__content > *.active {
+  display: flex !important;
+  width: 100% !important;
+  height: 100vh !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 5rem 8rem !important;
+  background: transparent !important;
+}
+
+/* Eliminar fondos internos de Dawn */
+.product-media-modal__content > *.active .global-media-settings,
+.product-media-modal__content > *.active .media,
+.product-media-modal__content > *.active .product__media {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Imagen protagonista */
+.product-media-modal__content > *.active img {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: min(82vw, 1100px) !important;
+  max-height: 82vh !important;
+  object-fit: contain !important;
+  margin: auto !important;
+
+  border-radius: 14px !important;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.38),
+    0 8px 24px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* Botón cerrar estilo vidrio */
+.product-media-modal__toggle {
+  position: fixed !important;
+  top: 2.4rem !important;
+  right: 2.4rem !important;
+
+  width: 4.8rem !important;
+  height: 4.8rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: rgba(15, 23, 42, 0.48) !important;
+  color: #ffffff !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 50% !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18) !important;
+
+  z-index: 9999 !important;
+}
+
+.product-media-modal__toggle:hover {
+  background: rgba(15, 23, 42, 0.72) !important;
+  color: #ffffff !important;
+}
+
+/* MOBILE */
+@media screen and (max-width: 749px) {
+
+  .product-media-modal {
+    backdrop-filter: blur(16px) brightness(0.50) !important;
+    -webkit-backdrop-filter: blur(16px) brightness(0.50) !important;
+  }
+
+  .product-media-modal__content > *.active {
+    padding: 5rem 1.6rem 2rem !important;
+  }
+
+  .product-media-modal__content > *.active img {
+    max-width: 94vw !important;
+    max-height: 78vh !important;
+    border-radius: 10px !important;
+  }
+
+  .product-media-modal__toggle {
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    width: 4.4rem !important;
+    height: 4.4rem !important;
+  }
+}
+

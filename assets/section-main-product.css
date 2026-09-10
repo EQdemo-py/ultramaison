@@ -3476,3 +3476,52 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — COMPACTAR FINAL PDP
+   Sin espacios vacíos innecesarios
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Menos espacio abajo dentro de la ficha */
+  .product__info-container {
+    padding-bottom: 2.2rem !important;
+  }
+
+  /* Bloque pagos más cerca de beneficios */
+  .um-payment-trust {
+    margin-top: 1.4rem !important;
+    padding-top: 1.6rem !important;
+  }
+
+  .um-payment-trust__divider {
+    margin: 1.3rem 0 !important;
+  }
+
+  /* Quitar espacio sobrante al final del producto */
+  .product {
+    margin-bottom: 0 !important;
+  }
+
+  .product__info-wrapper {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Relacionados más cerca del PDP */
+.related-products {
+  padding-top: 1.5rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .um-payment-trust {
+    margin-top: 1.2rem !important;
+    padding-top: 1.4rem !important;
+  }
+
+  .related-products {
+    padding-top: 1rem !important;
+  }
+}
+

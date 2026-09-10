@@ -2831,3 +2831,226 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — LIGHTBOX CARRUSEL PREMIUM
+   ========================================================= */
+
+.product-media-modal {
+  background: rgba(4, 8, 18, .72) !important;
+  backdrop-filter: blur(24px) brightness(.48) !important;
+  -webkit-backdrop-filter: blur(24px) brightness(.48) !important;
+}
+
+.product-media-modal__dialog,
+.product-media-modal__content {
+  background: transparent !important;
+}
+
+.product-media-modal__content {
+  position: relative !important;
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* Ocultar todo por defecto */
+.product-media-modal__content > .product__media-item {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  opacity: 0 !important;
+  pointer-events: none !important;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.86) !important;
+
+  transition:
+    transform .38s ease,
+    opacity .38s ease !important;
+}
+
+/* ACTIVA */
+.product-media-modal__content > .product__media-item.active {
+  z-index: 3 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+
+  transform:
+    translate(-50%, -50%)
+    scale(1) !important;
+}
+
+/* ANTERIOR */
+.product-media-modal__content > .product__media-item.um-lightbox-prev {
+  z-index: 2 !important;
+  left: 7% !important;
+  opacity: .38 !important;
+  pointer-events: auto !important;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.72) !important;
+
+  filter: brightness(.6) saturate(.7) !important;
+  cursor: pointer !important;
+}
+
+/* SIGUIENTE */
+.product-media-modal__content > .product__media-item.um-lightbox-next {
+  z-index: 2 !important;
+  left: 93% !important;
+  opacity: .38 !important;
+  pointer-events: auto !important;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.72) !important;
+
+  filter: brightness(.6) saturate(.7) !important;
+  cursor: pointer !important;
+}
+
+.product-media-modal__content > .product__media-item.um-lightbox-hidden {
+  display: none !important;
+}
+
+/* Limpiar contenedores internos */
+.product-media-modal__content .global-media-settings,
+.product-media-modal__content .media,
+.product-media-modal__content .product__media {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Imagen principal */
+.product-media-modal__content .product__media-item.active img {
+  display: block !important;
+
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 68vw !important;
+  max-height: 82vh !important;
+
+  object-fit: contain !important;
+
+  border-radius: 14px !important;
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.5),
+    0 10px 30px rgba(0,0,0,.28) !important;
+}
+
+/* Preview lateral */
+.product-media-modal__content .um-lightbox-prev img,
+.product-media-modal__content .um-lightbox-next img {
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 28vw !important;
+  max-height: 58vh !important;
+
+  object-fit: contain !important;
+
+  border-radius: 12px !important;
+}
+
+/* Flechas */
+.um-lightbox-arrow {
+  position: fixed !important;
+  top: 50% !important;
+
+  width: 5rem !important;
+  height: 5rem !important;
+
+  transform: translateY(-50%) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  border: 1px solid rgba(255,255,255,.25) !important;
+
+  background: rgba(10,18,38,.55) !important;
+  color: #fff !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+
+  font-size: 2.3rem !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  z-index: 9999 !important;
+
+  transition:
+    background .2s ease,
+    transform .2s ease !important;
+}
+
+.um-lightbox-arrow:hover {
+  background: rgba(10,18,38,.82) !important;
+}
+
+.um-lightbox-arrow--prev {
+  left: 2.5rem !important;
+}
+
+.um-lightbox-arrow--next {
+  right: 2.5rem !important;
+}
+
+/* X */
+.product-media-modal__toggle {
+  background: rgba(10,18,38,.58) !important;
+  color: #fff !important;
+
+  border: 1px solid rgba(255,255,255,.24) !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* MOBILE: no mostramos previews laterales */
+@media screen and (max-width: 749px) {
+
+  .product-media-modal__content > .product__media-item.um-lightbox-prev,
+  .product-media-modal__content > .product__media-item.um-lightbox-next {
+    display: none !important;
+  }
+
+  .product-media-modal__content .product__media-item.active img {
+    max-width: 92vw !important;
+    max-height: 78vh !important;
+  }
+
+  .um-lightbox-arrow {
+    width: 4.2rem !important;
+    height: 4.2rem !important;
+    font-size: 1.8rem !important;
+  }
+
+  .um-lightbox-arrow--prev {
+    left: 1rem !important;
+  }
+
+  .um-lightbox-arrow--next {
+    right: 1rem !important;
+  }
+}
+

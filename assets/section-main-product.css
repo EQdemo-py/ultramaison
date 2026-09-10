@@ -3211,3 +3211,144 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — FIX REAL LIGHTBOX CARRUSEL
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .product-media-modal__content > [data-media-id] {
+    position: absolute !important;
+    top: 50% !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    opacity: 0 !important;
+    pointer-events: none !important;
+
+    transition:
+      left .35s ease,
+      transform .35s ease,
+      opacity .35s ease,
+      filter .35s ease !important;
+  }
+
+  /* ACTUAL */
+  .product-media-modal__content > [data-media-id].active {
+    display: block !important;
+
+    left: 50% !important;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1) !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+
+    z-index: 5 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ANTERIOR */
+  .product-media-modal__content > [data-media-id].um-lightbox-prev {
+    display: block !important;
+
+    left: 8% !important;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.72) !important;
+
+    opacity: .42 !important;
+    filter: brightness(.5) saturate(.7) !important;
+
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* SIGUIENTE */
+  .product-media-modal__content > [data-media-id].um-lightbox-next {
+    display: block !important;
+
+    left: 92% !important;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.72) !important;
+
+    opacity: .42 !important;
+    filter: brightness(.5) saturate(.7) !important;
+
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  .product-media-modal__content > [data-media-id].um-lightbox-hidden {
+    display: none !important;
+  }
+
+  /* FOTO CENTRAL */
+  .product-media-modal__content > [data-media-id].active {
+    max-width: 64vw !important;
+    max-height: 78vh !important;
+  }
+
+  .product-media-modal__content > img[data-media-id].active {
+    width: auto !important;
+    height: auto !important;
+
+    max-width: 64vw !important;
+    max-height: 78vh !important;
+
+    object-fit: contain !important;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+      0 35px 90px rgba(0,0,0,.5),
+      0 10px 30px rgba(0,0,0,.28) !important;
+  }
+
+  /* PREVIEWS LATERALES */
+  .product-media-modal__content > img.um-lightbox-prev,
+  .product-media-modal__content > img.um-lightbox-next {
+    width: auto !important;
+    height: auto !important;
+
+    max-width: 24vw !important;
+    max-height: 52vh !important;
+
+    object-fit: contain !important;
+
+    border-radius: 12px !important;
+  }
+
+  .um-lightbox-arrow {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+
+  .product-media-modal__content > [data-media-id].um-lightbox-prev,
+  .product-media-modal__content > [data-media-id].um-lightbox-next {
+    display: none !important;
+  }
+
+  .product-media-modal__content > [data-media-id].active {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+

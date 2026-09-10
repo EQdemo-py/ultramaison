@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!content) return;
 
     const items = Array.from(content.children).filter((item) =>
-      item.matches('.product__media-item')
+      item.hasAttribute('data-media-id')
     );
 
     if (!items.length) return;
@@ -27,12 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.appendChild(prevButton);
     modal.appendChild(nextButton);
 
-    const getActiveIndex = () => {
-      const index = items.findIndex((item) => item.classList.contains('active'));
-      return index >= 0 ? index : 0;
-    };
+    let currentIndex = 0;
 
     const updateSlides = (index) => {
+      currentIndex = index;
+
+      const prevIndex = (index - 1 + items.length) % items.length;
+      const nextIndex = (index + 1) % items.length;
+
       items.forEach((item, i) => {
         item.classList.remove(
           'active',
@@ -43,13 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (i === index) {
           item.classList.add('active');
-          return;
-        }
-
-        const prevIndex = (index - 1 + items.length) % items.length;
-        const nextIndex = (index + 1) % items.length;
-
-        if (i === prevIndex) {
+        } else if (i === prevIndex) {
           item.classList.add('um-lightbox-prev');
         } else if (i === nextIndex) {
           item.classList.add('um-lightbox-next');
@@ -59,18 +55,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
+    const detectActiveMedia = () => {
+      const active = items.findIndex((item) => item.classList.contains('active'));
+      return active >= 0 ? active : 0;
+    };
+
     const move = (direction) => {
-      const current = getActiveIndex();
       const next =
         direction === 'next'
-          ? (current + 1) % items.length
-          : (current - 1 + items.length) % items.length;
+          ? (currentIndex + 1) % items.length
+          : (currentIndex - 1 + items.length) % items.length;
 
       updateSlides(next);
     };
 
-    prevButton.addEventListener('click', () => move('prev'));
-    nextButton.addEventListener('click', () => move('next'));
+    prevButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      move('prev');
+    });
+
+    nextButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      move('next');
+    });
 
     modal.addEventListener('keydown', (event) => {
       if (!modal.hasAttribute('open')) return;
@@ -79,25 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.key === 'ArrowRight') move('next');
     });
 
+    content.addEventListener('click', (event) => {
+      const previous = event.target.closest('.um-lightbox-prev');
+      const next = event.target.closest('.um-lightbox-next');
+
+      if (previous) move('prev');
+      if (next) move('next');
+    });
+
     const observer = new MutationObserver(() => {
       if (!modal.hasAttribute('open')) return;
 
       requestAnimationFrame(() => {
-        updateSlides(getActiveIndex());
+        currentIndex = detectActiveMedia();
+        updateSlides(currentIndex);
       });
     });
 
     observer.observe(modal, {
       attributes: true,
       attributeFilter: ['open'],
-    });
-
-    content.addEventListener('click', (event) => {
-      const prev = event.target.closest('.um-lightbox-prev');
-      const next = event.target.closest('.um-lightbox-next');
-
-      if (prev) move('prev');
-      if (next) move('next');
     });
   });
 });

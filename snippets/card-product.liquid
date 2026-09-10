@@ -135,11 +135,15 @@
                   {{- 'products.product.sold_out' | t -}}
                 </span>
               {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+                {%- assign um_compare_price = card_product.compare_at_price -%}
+                {%- assign um_current_price = card_product.price -%}
+                {%- assign um_discount_amount = um_compare_price | minus: um_current_price -%}
+                {%- assign um_discount_percent = um_discount_amount | times: 100.0 | divided_by: um_compare_price | round -%}
                 <span
                   id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                  class="badge badge--bottom-left ultramaison-discount-badge"
                 >
-                  {{- 'products.product.on_sale' | t -}}
+                  -{{ um_discount_percent }}%
                 </span>
               {%- endif -%}
             </div>

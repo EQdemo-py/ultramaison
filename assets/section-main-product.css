@@ -2515,3 +2515,66 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — GALERÍA SHOWROOM COMPACTA
+   Corrige altura excesiva del layout editorial anterior
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  .product__media-wrapper .product__media-list {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.4rem !important;
+    align-items: start !important;
+  }
+
+  .product__media-wrapper .product__media-item {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Primera fotografía protagonista */
+  .product__media-wrapper .product__media-item:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Foto principal */
+  .product__media-wrapper .product__media-item:first-child .product__media {
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  /* Galería secundaria */
+  .product__media-wrapper .product__media-item:not(:first-child) .product__media {
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .product__media-wrapper .product__media {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    background: #f4f5f7 !important;
+  }
+
+  .product__media-wrapper .product__media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* Quitamos el efecto exagerado anterior */
+  .product__media-wrapper .product__media:hover img {
+    transform: none !important;
+  }
+
+  /* Ficha de compra alineada arriba */
+  .product__info-wrapper {
+    align-self: start !important;
+  }
+}
+

@@ -3665,3 +3665,95 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — MOBILE PDP COMPACTA
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  /* Beneficios principales en 3 columnas */
+  .um-pdp-benefits {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: .6rem !important;
+    margin-top: 1.4rem !important;
+    padding-top: 1.2rem !important;
+  }
+
+  .um-pdp-benefit {
+    padding: 0 .25rem !important;
+    text-align: center !important;
+  }
+
+  .um-pdp-benefit strong {
+    font-size: .78rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .um-pdp-benefit span {
+    margin-top: .25rem !important;
+    font-size: .68rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Formas de pago más compactas */
+  .um-payment-trust {
+    margin-top: 1.2rem !important;
+    padding-top: 1.2rem !important;
+  }
+
+  .um-payment-trust__title {
+    margin-bottom: .8rem !important;
+    font-size: .85rem !important;
+  }
+
+  .um-payment-trust__methods {
+    gap: .5rem !important;
+    margin-bottom: .9rem !important;
+  }
+
+  .um-payment-logo {
+    min-width: 4rem !important;
+    height: 2.7rem !important;
+    padding: .2rem .4rem !important;
+  }
+
+  .um-payment-logo svg {
+    height: 1.7rem !important;
+  }
+
+  /* Los 3 mensajes en una línea */
+  .um-payment-trust__list {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: .8rem !important;
+    overflow-x: auto !important;
+    padding-bottom: .2rem !important;
+    scrollbar-width: none;
+  }
+
+  .um-payment-trust__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .um-payment-trust__item {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    gap: .35rem !important;
+    font-size: .72rem !important;
+  }
+
+  .um-payment-trust__check {
+    width: 1.45rem !important;
+    height: 1.45rem !important;
+    flex: 0 0 1.45rem !important;
+    font-size: .75rem !important;
+  }
+
+  /* Menos aire antes de relacionados */
+  .related-products {
+    padding-top: .8rem !important;
+  }
+}
+

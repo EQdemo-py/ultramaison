@@ -3054,3 +3054,160 @@ product-info {
   }
 }
 
+
+/* =========================================================
+   ULTRAMAISON — AJUSTE FINAL CARRUSEL LIGHTBOX
+   Centro real + previews laterales visibles
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .product-media-modal__content {
+    position: relative !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  /* Base de todas las slides */
+  .product-media-modal__content > .product__media-item {
+    position: absolute !important;
+    top: 50% !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    transition:
+      left .35s ease,
+      transform .35s ease,
+      opacity .35s ease,
+      filter .35s ease !important;
+  }
+
+  /* FOTO ACTIVA — centro exacto */
+  .product-media-modal__content > .product__media-item.active {
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+
+    opacity: 1 !important;
+    filter: none !important;
+
+    z-index: 5 !important;
+    pointer-events: auto !important;
+  }
+
+  /* FOTO ANTERIOR */
+  .product-media-modal__content > .product__media-item.um-lightbox-prev {
+    left: 4% !important;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.76) !important;
+
+    opacity: .46 !important;
+    filter: brightness(.55) saturate(.72) !important;
+
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* FOTO SIGUIENTE */
+  .product-media-modal__content > .product__media-item.um-lightbox-next {
+    left: 96% !important;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.76) !important;
+
+    opacity: .46 !important;
+    filter: brightness(.55) saturate(.72) !important;
+
+    z-index: 3 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* Las demás no aparecen */
+  .product-media-modal__content > .product__media-item.um-lightbox-hidden {
+    display: none !important;
+  }
+
+  /* Imagen activa */
+  .product-media-modal__content > .product__media-item.active img {
+    display: block !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    max-width: 66vw !important;
+    max-height: 78vh !important;
+
+    object-fit: contain !important;
+    margin: 0 !important;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+      0 30px 90px rgba(0,0,0,.48),
+      0 10px 30px rgba(0,0,0,.25) !important;
+  }
+
+  /* Preview lateral */
+  .product-media-modal__content > .um-lightbox-prev img,
+  .product-media-modal__content > .um-lightbox-next img {
+    width: auto !important;
+    height: auto !important;
+
+    max-width: 26vw !important;
+    max-height: 56vh !important;
+
+    object-fit: contain !important;
+    margin: 0 !important;
+
+    border-radius: 12px !important;
+  }
+
+  /* Flechas siempre visibles */
+  .um-lightbox-arrow {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .um-lightbox-arrow--prev {
+    left: 2rem !important;
+  }
+
+  .um-lightbox-arrow--next {
+    right: 2rem !important;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 749px) {
+
+  .product-media-modal__content > .product__media-item.active {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .product-media-modal__content > .product__media-item.active img {
+    max-width: 90vw !important;
+    max-height: 76vh !important;
+  }
+
+  .product-media-modal__content > .um-lightbox-prev,
+  .product-media-modal__content > .um-lightbox-next {
+    display: none !important;
+  }
+}
+

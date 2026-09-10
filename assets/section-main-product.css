@@ -2326,3 +2326,24 @@ product-info {
     content: " · ";
   }
 }
+
+/* Ajuste final botones PDP */
+.product__info-container .shopify-payment-button__button,
+.product__info-container .shopify-payment-button__button--unbranded {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.product__info-container .shopify-payment-button__button::before,
+.product__info-container .shopify-payment-button__button::after {
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.um-pdp-benefit strong {
+  font-size: 1.1rem !important;
+}
+
+.um-pdp-benefit span {
+  font-size: 1rem !important;
+}

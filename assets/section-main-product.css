@@ -3637,3 +3637,31 @@ product-info {
   }
 }
 
+
+/* ULTRAMAISON — trust items en una sola línea */
+@media screen and (min-width: 990px) {
+  .um-payment-trust__list {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 1.2rem !important;
+    width: 100% !important;
+  }
+
+  .um-payment-trust__item {
+    display: flex !important;
+    align-items: center !important;
+    gap: .45rem !important;
+    white-space: nowrap !important;
+    flex: 0 0 auto !important;
+    font-size: .9rem !important;
+  }
+
+  .um-payment-trust__check {
+    width: 1.55rem !important;
+    height: 1.55rem !important;
+    flex: 0 0 1.55rem !important;
+    font-size: .8rem !important;
+  }
+}
+

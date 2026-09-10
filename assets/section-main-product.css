@@ -3372,3 +3372,20 @@ product-info {
   z-index: 10002 !important;
 }
 
+
+/* ULTRAMAISON — flechas lightbox fuera del área de cierre */
+.product-media-modal > .um-lightbox-arrow {
+  position: fixed !important;
+  top: 50% !important;
+  z-index: 2147483646 !important;
+  pointer-events: auto !important;
+}
+
+.product-media-modal > .um-lightbox-arrow--prev {
+  left: 2rem !important;
+}
+
+.product-media-modal > .um-lightbox-arrow--next {
+  right: 2rem !important;
+}
+

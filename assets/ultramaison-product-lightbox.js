@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal.dataset.umLightboxReady === 'true') return;
     modal.dataset.umLightboxReady = 'true';
 
-    const dialog = modal.querySelector('.product-media-modal__dialog');
     const content = modal.querySelector('.product-media-modal__content');
-
-    if (!dialog || !content) return;
+    if (!content) return;
 
     const items = Array.from(content.children).filter((item) =>
       item.hasAttribute('data-media-id')
@@ -28,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.setAttribute('aria-label', 'Imagen siguiente');
     nextButton.innerHTML = '&#10095;';
 
-    dialog.appendChild(prevButton);
-    dialog.appendChild(nextButton);
+    /* IMPORTANTE:
+       Van directamente dentro del modal, no dentro del dialog */
+    modal.appendChild(prevButton);
+    modal.appendChild(nextButton);
 
     function updateSlides(index) {
       currentIndex = ((index % items.length) + items.length) % items.length;
@@ -86,53 +86,29 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlides(currentIndex + 1);
     }
 
-    function blockModalClose(event) {
+    function killEvent(event) {
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
     }
 
-    ['pointerdown', 'mousedown'].forEach((eventName) => {
-      prevButton.addEventListener(eventName, blockModalClose, true);
-      nextButton.addEventListener(eventName, blockModalClose, true);
-    });
+    function bindArrow(button, callback) {
+      ['pointerdown', 'pointerup', 'mousedown', 'mouseup'].forEach((eventName) => {
+        button.addEventListener(eventName, killEvent, true);
+      });
 
-    prevButton.addEventListener(
-      'click',
-      (event) => {
-        blockModalClose(event);
-        previous();
-      },
-      true
-    );
+      button.addEventListener(
+        'click',
+        (event) => {
+          killEvent(event);
+          callback();
+        },
+        true
+      );
+    }
 
-    nextButton.addEventListener(
-      'click',
-      (event) => {
-        blockModalClose(event);
-        next();
-      },
-      true
-    );
-
-    content.addEventListener(
-      'click',
-      (event) => {
-        const item = event.target.closest('[data-media-id]');
-        if (!item) return;
-
-        if (item.classList.contains('um-lightbox-prev')) {
-          blockModalClose(event);
-          previous();
-        }
-
-        if (item.classList.contains('um-lightbox-next')) {
-          blockModalClose(event);
-          next();
-        }
-      },
-      true
-    );
+    bindArrow(prevButton, previous);
+    bindArrow(nextButton, next);
 
     document.addEventListener('keydown', (event) => {
       if (!modal.hasAttribute('open')) return;

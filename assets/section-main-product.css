@@ -3565,3 +3565,16 @@ product-info {
   object-fit: contain;
 }
 
+
+/* ULTRAMAISON — mejorar presencia logos de pago */
+.um-payment-logo {
+  min-width: 5.4rem !important;
+  height: 3.6rem !important;
+  padding: .4rem .7rem !important;
+}
+
+.um-payment-logo svg {
+  height: 2.2rem !important;
+  max-width: 5.6rem !important;
+}
+

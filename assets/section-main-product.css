@@ -2393,3 +2393,27 @@ product-info {
   font-weight: 600;
   text-align: right;
 }
+
+/* ULTRAMAISON — ajuste final galería PDP */
+@media screen and (min-width: 990px) {
+  .product__media-wrapper .product__media-item {
+    align-self: start;
+  }
+
+  .product__media-wrapper .product__media {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f7f8fb;
+  }
+
+  .product__media-wrapper .product__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .product__media-wrapper .product__media-list {
+    gap: 1.8rem !important;
+  }
+}

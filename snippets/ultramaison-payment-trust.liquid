@@ -1,0 +1,30 @@
+<div class="um-payment-trust">
+  <div class="um-payment-trust__title">
+    Formas de pago disponibles
+  </div>
+
+  <div class="um-payment-trust__methods">
+    {% for type in shop.enabled_payment_types %}
+      {{ type | payment_type_svg_tag: class: 'um-payment-trust__icon' }}
+    {% endfor %}
+  </div>
+
+  <div class="um-payment-trust__divider"></div>
+
+  <div class="um-payment-trust__list">
+    <div class="um-payment-trust__item">
+      <span class="um-payment-trust__check">✓</span>
+      <span>Productos originales</span>
+    </div>
+
+    <div class="um-payment-trust__item">
+      <span class="um-payment-trust__check">✓</span>
+      <span>Garantía oficial de marca</span>
+    </div>
+
+    <div class="um-payment-trust__item">
+      <span class="um-payment-trust__check">✓</span>
+      <span>Compra segura y protegida</span>
+    </div>
+  </div>
+</div>

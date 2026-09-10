@@ -3389,3 +3389,90 @@ product-info {
   right: 2rem !important;
 }
 
+
+/* =========================================================
+   ULTRAMAISON — PAYMENT & TRUST
+   ========================================================= */
+
+.um-payment-trust {
+  margin-top: 2.4rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid rgba(13, 29, 79, .10);
+}
+
+.um-payment-trust__title {
+  margin-bottom: 1.4rem;
+  color: #0d1d4f;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.um-payment-trust__methods {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .8rem;
+}
+
+.um-payment-trust__icon {
+  width: auto;
+  height: 2.6rem;
+  max-width: 4.8rem;
+}
+
+.um-payment-trust__divider {
+  height: 1px;
+  margin: 1.8rem 0;
+  background: rgba(13, 29, 79, .08);
+}
+
+.um-payment-trust__list {
+  display: grid;
+  gap: 1rem;
+}
+
+.um-payment-trust__item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  color: #596274;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+.um-payment-trust__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+
+  flex: 0 0 2rem;
+
+  border-radius: 50%;
+
+  background: #0d1d4f;
+  color: #fff;
+
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 749px) {
+  .um-payment-trust {
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+  }
+
+  .um-payment-trust__methods {
+    gap: .6rem;
+  }
+
+  .um-payment-trust__icon {
+    height: 2.3rem;
+  }
+}
+

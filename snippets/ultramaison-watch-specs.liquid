@@ -1,0 +1,44 @@
+{% liquid
+  assign um_diameter = product.metafields.custom.diametro_de_caja_mm.value
+  assign um_water = product.metafields.custom.resistencia_al_agua.value
+  assign um_crystal = product.metafields.custom.tipo_de_cristal.value
+  assign um_movement = product.metafields.custom.movimiento.value
+  assign um_sku = product.selected_or_first_available_variant.sku
+%}
+
+<div class="um-watch-specs">
+  {% if um_movement != blank %}
+    <div class="um-watch-specs__row">
+      <span>Movimiento</span>
+      <strong>{{ um_movement }}</strong>
+    </div>
+  {% endif %}
+
+  {% if um_crystal != blank %}
+    <div class="um-watch-specs__row">
+      <span>Cristal</span>
+      <strong>{{ um_crystal }}</strong>
+    </div>
+  {% endif %}
+
+  {% if um_water != blank %}
+    <div class="um-watch-specs__row">
+      <span>Resistencia al agua</span>
+      <strong>{{ um_water }} m</strong>
+    </div>
+  {% endif %}
+
+  {% if um_diameter != blank %}
+    <div class="um-watch-specs__row">
+      <span>Diámetro de caja</span>
+      <strong>{{ um_diameter }} mm</strong>
+    </div>
+  {% endif %}
+
+  {% if um_sku != blank %}
+    <div class="um-watch-specs__row">
+      <span>Referencia</span>
+      <strong>{{ um_sku }}</strong>
+    </div>
+  {% endif %}
+</div>

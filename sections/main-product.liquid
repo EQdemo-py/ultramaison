@@ -141,7 +141,6 @@
                       {{ form | payment_terms }}
                     {%- endform -%}
                   </div>
-                  {% render 'ultramaison-watch-essentials', product: product %}
 
                 {%- when 'inventory' -%}
                   <p
@@ -199,6 +198,7 @@
                     <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                       {{ product.description }}
                     </div>
+                    {% render 'ultramaison-watch-essentials', product: product %}
                   {%- endif -%}
                 {%- when 'sku' -%}
                   {%- if product.selected_or_first_available_variant.sku != blank -%}
@@ -232,8 +232,12 @@
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </summary>
                       <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        {{ block.settings.content }}
-                        {{ block.settings.page.content }}
+                        {%- if block.settings.heading == 'Especificaciones técnicas' -%}
+                          {% render 'ultramaison-watch-specs', product: product %}
+                        {%- else -%}
+                          {{ block.settings.content }}
+                          {{ block.settings.page.content }}
+                        {%- endif -%}
                       </div>
                     </details>
                   </div>

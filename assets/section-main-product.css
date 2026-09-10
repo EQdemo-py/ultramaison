@@ -2364,3 +2364,32 @@ product-info {
     letter-spacing: .12em;
   }
 }
+
+/* ULTRAMAISON — Especificaciones técnicas */
+.um-watch-specs {
+  padding: .8rem 0 1.2rem;
+}
+
+.um-watch-specs__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(13, 29, 79, .08);
+}
+
+.um-watch-specs__row:last-child {
+  border-bottom: 0;
+}
+
+.um-watch-specs__row span {
+  color: #767e8e;
+  font-size: 1.2rem;
+}
+
+.um-watch-specs__row strong {
+  color: #0d1d4f;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: right;
+}

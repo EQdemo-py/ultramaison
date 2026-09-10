@@ -5141,3 +5141,38 @@ details-disclosure > details {
     flex-wrap: wrap !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — JERARQUÍA DE PRECIOS DESKTOP
+   Precio final protagonista / precio anterior secundario
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  /* Precio promocional ACTUAL */
+  .card-information .price--on-sale .price-item--sale {
+    color: #111111 !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Precio ANTERIOR tachado */
+  .card-information .price--on-sale .price-item--regular {
+    color: #9a9a9a !important;
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    opacity: 0.72 !important;
+    text-decoration-color: #9a9a9a !important;
+    text-decoration-thickness: 1px !important;
+  }
+
+  /* Orden y separación */
+  .card-information .price__sale {
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    gap: 4px 10px !important;
+  }
+}
+

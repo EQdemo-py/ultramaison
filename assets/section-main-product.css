@@ -2417,3 +2417,101 @@ product-info {
     gap: 1.8rem !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — PDP EDITORIAL PREMIUM
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  /* Galería editorial */
+  .product__media-wrapper .product__media-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+    align-items: start;
+  }
+
+  .product__media-wrapper .product__media-item {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  /* Imágenes protagonistas */
+  .product__media-wrapper .product__media-item:nth-child(1),
+  .product__media-wrapper .product__media-item:nth-child(4),
+  .product__media-wrapper .product__media-item:nth-child(7) {
+    grid-column: 1 / -1;
+  }
+
+  /* Contenedor */
+  .product__media-wrapper .product__media {
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    background: #f3f4f6 !important;
+  }
+
+  .product__media-wrapper .product__media img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: cover !important;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  /* Movimiento muy sutil */
+  .product__media-wrapper .product__media:hover img {
+    transform: scale(1.015);
+  }
+
+  /* Ficha derecha estilo boutique */
+  .product__info-wrapper {
+    padding-left: 5rem !important;
+  }
+
+  .product__info-container {
+    background: #ffffff;
+    padding: 3.6rem 3.8rem !important;
+    border-radius: 18px;
+    border: 1px solid rgba(13, 29, 79, .08);
+    box-shadow:
+      0 20px 60px rgba(13, 29, 79, .05),
+      0 2px 8px rgba(13, 29, 79, .03);
+  }
+
+  /* Más presencia al nombre del reloj */
+  .product__title h1 {
+    font-size: clamp(3.2rem, 3vw, 4.4rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  /* Separación elegante */
+  .product__description {
+    margin-top: 2.6rem !important;
+    padding-top: 2.6rem !important;
+    border-top: 1px solid rgba(13, 29, 79, .10);
+  }
+
+  /* Zona de compra más compacta */
+  .product__info-container .product-form {
+    margin-top: 2.8rem !important;
+  }
+}
+
+/* Mobile se mantiene limpio y simple */
+@media screen and (max-width: 989px) {
+
+  .product__info-container {
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+  }
+
+  .product__media-wrapper .product__media {
+    border-radius: 12px !important;
+    overflow: hidden;
+  }
+}
+

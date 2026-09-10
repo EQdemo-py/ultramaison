@@ -3578,3 +3578,62 @@ product-info {
   max-width: 5.6rem !important;
 }
 
+
+/* =========================================================
+   ULTRAMAISON — COMPACTAR PAYMENT TRUST
+   Evita aumentar innecesariamente la altura de la PDP
+   ========================================================= */
+
+@media screen and (min-width: 990px) {
+
+  .um-payment-trust {
+    margin-top: 1rem !important;
+    padding-top: 1.2rem !important;
+  }
+
+  .um-payment-trust__title {
+    margin-bottom: .9rem !important;
+  }
+
+  .um-payment-trust__methods {
+    margin: 0 0 1rem !important;
+    gap: .6rem !important;
+  }
+
+  .um-payment-logo {
+    height: 3rem !important;
+    min-width: 4.6rem !important;
+    padding: .3rem .5rem !important;
+  }
+
+  .um-payment-logo svg {
+    height: 1.9rem !important;
+  }
+
+  /* Los 3 mensajes pasan a una sola fila */
+  .um-payment-trust__list {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: .8rem 1.4rem !important;
+  }
+
+  .um-payment-trust__item {
+    gap: .5rem !important;
+    font-size: 1rem !important;
+    white-space: nowrap;
+  }
+
+  .um-payment-trust__check {
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+    flex: 0 0 1.7rem !important;
+    font-size: .9rem !important;
+  }
+
+  /* Menos aire al final de la tarjeta */
+  .product__info-container {
+    padding-bottom: 1.4rem !important;
+  }
+}
+

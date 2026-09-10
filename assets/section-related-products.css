@@ -5,3 +5,100 @@
 .related-products__heading {
   margin: 0 0 3rem;
 }
+
+/* =========================================================
+   ULTRAMAISON — RECOMENDACIONES PREMIUM PDP
+   ========================================================= */
+
+.related-products {
+  padding-top: 4.8rem !important;
+  padding-bottom: 6rem !important;
+}
+
+.related-products__heading {
+  margin: 0 0 3rem !important;
+  color: #0d1d4f !important;
+  font-family: var(--font-heading-family) !important;
+  font-size: clamp(2.6rem, 2.5vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -.02em !important;
+}
+
+.related-products .product-grid {
+  column-gap: 2.4rem;
+  row-gap: 3rem;
+}
+
+.related-products .card-wrapper {
+  height: 100%;
+}
+
+.related-products .card {
+  border-radius: 0 !important;
+}
+
+.related-products .card__media {
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+.related-products .card__information {
+  padding-top: 1.4rem !important;
+}
+
+.related-products .card__heading {
+  font-family: var(--font-heading-family) !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+}
+
+.related-products .card__heading a {
+  color: #0d1d4f !important;
+  text-decoration: none !important;
+}
+
+.related-products .price {
+  margin-top: .8rem;
+}
+
+.related-products .price-item--sale,
+.related-products .price__regular .price-item--regular {
+  color: #111 !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+}
+
+.related-products .price--on-sale .price-item--regular {
+  color: #9a9a9a !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+}
+
+.related-products .badge {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  padding: .65rem .9rem !important;
+}
+
+@media screen and (max-width: 749px) {
+  .related-products {
+    padding-top: 3.2rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .related-products__heading {
+    margin-bottom: 2rem !important;
+    font-size: 2.4rem !important;
+  }
+
+  .related-products .product-grid {
+    column-gap: 1.2rem;
+    row-gap: 2.4rem;
+  }
+
+  .related-products .card__heading {
+    font-size: 1.3rem !important;
+  }
+}

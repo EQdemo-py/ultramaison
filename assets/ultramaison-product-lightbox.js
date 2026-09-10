@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   document.querySelectorAll('product-modal.product-media-modal').forEach((modal) => {
-
     if (modal.dataset.umLightboxReady === 'true') return;
     modal.dataset.umLightboxReady = 'true';
 
@@ -18,10 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentIndex = 0;
 
-    /* =========================
-       BOTONES
-       ========================= */
-
     const prevButton = document.createElement('button');
     prevButton.type = 'button';
     prevButton.className = 'um-lightbox-arrow um-lightbox-arrow--prev';
@@ -34,28 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.setAttribute('aria-label', 'Imagen siguiente');
     nextButton.innerHTML = '&#10095;';
 
-    /* IMPORTANTE:
-       Los botones quedan dentro del dialog nativo de Shopify */
     dialog.appendChild(prevButton);
     dialog.appendChild(nextButton);
 
-    /* =========================
-       ACTUALIZAR CARRUSEL
-       ========================= */
-
     function updateSlides(index) {
+      currentIndex = ((index % items.length) + items.length) % items.length;
 
-      currentIndex =
-        ((index % items.length) + items.length) % items.length;
-
-      const prevIndex =
-        (currentIndex - 1 + items.length) % items.length;
-
-      const nextIndex =
-        (currentIndex + 1) % items.length;
+      const prevIndex = (currentIndex - 1 + items.length) % items.length;
+      const nextIndex = (currentIndex + 1) % items.length;
 
       items.forEach((item, i) => {
-
         item.classList.remove(
           'active',
           'um-lightbox-prev',
@@ -72,24 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           item.classList.add('um-lightbox-hidden');
         }
-
       });
     }
 
-    /* =========================
-       SABER QUÉ FOTO ABRIÓ
-       ========================= */
-
     function syncOpenedImage() {
-
-      const openerId =
-        modal.openedBy?.getAttribute('data-media-id');
+      const openerId = modal.openedBy?.getAttribute('data-media-id');
 
       if (openerId) {
-
         const index = items.findIndex(
-          (item) =>
-            String(item.dataset.mediaId) === String(openerId)
+          (item) => String(item.dataset.mediaId) === String(openerId)
         );
 
         if (index >= 0) {
@@ -98,17 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      const activeIndex =
-        items.findIndex((item) =>
-          item.classList.contains('active')
-        );
+      const activeIndex = items.findIndex((item) =>
+        item.classList.contains('active')
+      );
 
       updateSlides(activeIndex >= 0 ? activeIndex : 0);
     }
-
-    /* =========================
-       NAVEGACIÓN
-       ========================= */
 
     function previous() {
       updateSlides(currentIndex - 1);
@@ -118,15 +86,21 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlides(currentIndex + 1);
     }
 
-    /* CAPTURE evita que Shopify intercepte el clic */
+    function blockModalClose(event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+    }
+
+    ['pointerdown', 'mousedown'].forEach((eventName) => {
+      prevButton.addEventListener(eventName, blockModalClose, true);
+      nextButton.addEventListener(eventName, blockModalClose, true);
+    });
 
     prevButton.addEventListener(
       'click',
       (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-
+        blockModalClose(event);
         previous();
       },
       true
@@ -135,46 +109,32 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.addEventListener(
       'click',
       (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-
+        blockModalClose(event);
         next();
       },
       true
     );
 
-    /* Click en las previews */
-
     content.addEventListener(
       'click',
       (event) => {
-
-        const item =
-          event.target.closest('[data-media-id]');
-
+        const item = event.target.closest('[data-media-id]');
         if (!item) return;
 
         if (item.classList.contains('um-lightbox-prev')) {
-          event.preventDefault();
-          event.stopPropagation();
+          blockModalClose(event);
           previous();
         }
 
         if (item.classList.contains('um-lightbox-next')) {
-          event.preventDefault();
-          event.stopPropagation();
+          blockModalClose(event);
           next();
         }
-
       },
       true
     );
 
-    /* TECLADO */
-
     document.addEventListener('keydown', (event) => {
-
       if (!modal.hasAttribute('open')) return;
 
       if (event.key === 'ArrowLeft') {
@@ -186,26 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         next();
       }
-
     });
 
-    /* Cada vez que Shopify abre el modal */
-
     const observer = new MutationObserver(() => {
-
       if (!modal.hasAttribute('open')) return;
 
       requestAnimationFrame(() => {
         requestAnimationFrame(syncOpenedImage);
       });
-
     });
 
     observer.observe(modal, {
       attributes: true,
       attributeFilter: ['open']
     });
-
   });
-
 });

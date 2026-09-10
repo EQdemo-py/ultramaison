@@ -30,10 +30,30 @@
             "text_alignment_mobile": "left",
             "color_scheme": "scheme-1"
           }
+        },
+        "slide_BzgBR8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_a554u2a554u2a554_1.jpg",
+            "mobile_image": "shopify://shop_images/Gemini_Generated_Image_a554u2a554u2a554_1_9bb6a30e-e5e8-44fd-8ad6-743008c58303.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "https://demoreloj.myshopify.com/pages/technomarine?pb=0",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-1"
+          }
         }
       },
       "block_order": [
-        "slide-0"
+        "slide-0",
+        "slide_BzgBR8"
       ],
       "name": "BANNERS PRINCIPAL",
       "settings": {

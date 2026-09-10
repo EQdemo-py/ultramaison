@@ -3352,3 +3352,23 @@ product-info {
   }
 }
 
+
+/* ULTRAMAISON — garantizar interacción flechas lightbox */
+
+.product-media-modal__dialog {
+  position: relative !important;
+}
+
+.um-lightbox-arrow {
+  pointer-events: auto !important;
+  touch-action: manipulation !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  cursor: pointer !important;
+  z-index: 10001 !important;
+}
+
+.product-media-modal__toggle {
+  z-index: 10002 !important;
+}
+

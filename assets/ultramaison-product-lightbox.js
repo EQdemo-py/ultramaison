@@ -1,16 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+
   document.querySelectorAll('product-modal.product-media-modal').forEach((modal) => {
+
     if (modal.dataset.umLightboxReady === 'true') return;
     modal.dataset.umLightboxReady = 'true';
 
+    const dialog = modal.querySelector('.product-media-modal__dialog');
     const content = modal.querySelector('.product-media-modal__content');
-    if (!content) return;
+
+    if (!dialog || !content) return;
 
     const items = Array.from(content.children).filter((item) =>
       item.hasAttribute('data-media-id')
     );
 
-    if (!items.length) return;
+    if (items.length < 2) return;
+
+    let currentIndex = 0;
+
+    /* =========================
+       BOTONES
+       ========================= */
 
     const prevButton = document.createElement('button');
     prevButton.type = 'button';
@@ -24,18 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
     nextButton.setAttribute('aria-label', 'Imagen siguiente');
     nextButton.innerHTML = '&#10095;';
 
-    modal.appendChild(prevButton);
-    modal.appendChild(nextButton);
+    /* IMPORTANTE:
+       Los botones quedan dentro del dialog nativo de Shopify */
+    dialog.appendChild(prevButton);
+    dialog.appendChild(nextButton);
 
-    let currentIndex = 0;
+    /* =========================
+       ACTUALIZAR CARRUSEL
+       ========================= */
 
-    const updateSlides = (index) => {
-      currentIndex = index;
+    function updateSlides(index) {
 
-      const prevIndex = (index - 1 + items.length) % items.length;
-      const nextIndex = (index + 1) % items.length;
+      currentIndex =
+        ((index % items.length) + items.length) % items.length;
+
+      const prevIndex =
+        (currentIndex - 1 + items.length) % items.length;
+
+      const nextIndex =
+        (currentIndex + 1) % items.length;
 
       items.forEach((item, i) => {
+
         item.classList.remove(
           'active',
           'um-lightbox-prev',
@@ -43,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'um-lightbox-hidden'
         );
 
-        if (i === index) {
+        if (i === currentIndex) {
           item.classList.add('active');
         } else if (i === prevIndex) {
           item.classList.add('um-lightbox-prev');
@@ -52,60 +72,140 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           item.classList.add('um-lightbox-hidden');
         }
+
       });
-    };
+    }
 
-    const detectActiveMedia = () => {
-      const active = items.findIndex((item) => item.classList.contains('active'));
-      return active >= 0 ? active : 0;
-    };
+    /* =========================
+       SABER QUÉ FOTO ABRIÓ
+       ========================= */
 
-    const move = (direction) => {
-      const next =
-        direction === 'next'
-          ? (currentIndex + 1) % items.length
-          : (currentIndex - 1 + items.length) % items.length;
+    function syncOpenedImage() {
 
-      updateSlides(next);
-    };
+      const openerId =
+        modal.openedBy?.getAttribute('data-media-id');
 
-    prevButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      move('prev');
-    });
+      if (openerId) {
 
-    nextButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      move('next');
-    });
+        const index = items.findIndex(
+          (item) =>
+            String(item.dataset.mediaId) === String(openerId)
+        );
 
-    modal.addEventListener('keydown', (event) => {
+        if (index >= 0) {
+          updateSlides(index);
+          return;
+        }
+      }
+
+      const activeIndex =
+        items.findIndex((item) =>
+          item.classList.contains('active')
+        );
+
+      updateSlides(activeIndex >= 0 ? activeIndex : 0);
+    }
+
+    /* =========================
+       NAVEGACIÓN
+       ========================= */
+
+    function previous() {
+      updateSlides(currentIndex - 1);
+    }
+
+    function next() {
+      updateSlides(currentIndex + 1);
+    }
+
+    /* CAPTURE evita que Shopify intercepte el clic */
+
+    prevButton.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        previous();
+      },
+      true
+    );
+
+    nextButton.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+        next();
+      },
+      true
+    );
+
+    /* Click en las previews */
+
+    content.addEventListener(
+      'click',
+      (event) => {
+
+        const item =
+          event.target.closest('[data-media-id]');
+
+        if (!item) return;
+
+        if (item.classList.contains('um-lightbox-prev')) {
+          event.preventDefault();
+          event.stopPropagation();
+          previous();
+        }
+
+        if (item.classList.contains('um-lightbox-next')) {
+          event.preventDefault();
+          event.stopPropagation();
+          next();
+        }
+
+      },
+      true
+    );
+
+    /* TECLADO */
+
+    document.addEventListener('keydown', (event) => {
+
       if (!modal.hasAttribute('open')) return;
 
-      if (event.key === 'ArrowLeft') move('prev');
-      if (event.key === 'ArrowRight') move('next');
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        previous();
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        next();
+      }
+
     });
 
-    content.addEventListener('click', (event) => {
-      const previous = event.target.closest('.um-lightbox-prev');
-      const next = event.target.closest('.um-lightbox-next');
-
-      if (previous) move('prev');
-      if (next) move('next');
-    });
+    /* Cada vez que Shopify abre el modal */
 
     const observer = new MutationObserver(() => {
+
       if (!modal.hasAttribute('open')) return;
 
       requestAnimationFrame(() => {
-        currentIndex = detectActiveMedia();
-        updateSlides(currentIndex);
+        requestAnimationFrame(syncOpenedImage);
       });
+
     });
 
     observer.observe(modal, {
       attributes: true,
-      attributeFilter: ['open'],
+      attributeFilter: ['open']
     });
+
   });
+
 });

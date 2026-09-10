@@ -31,6 +31,12 @@
           "type": "price",
           "settings": {}
         },
+        "sku_EFGKUD": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -72,6 +78,7 @@
         "title",
         "rating",
         "price",
+        "sku_EFGKUD",
         "description",
         "custom_liquid_JpB6Yj",
         "variant_picker",

@@ -216,6 +216,14 @@
                 </a>
               </div>
             {%- endif -%}
+
+            {%- if block.settings.link != blank and block.settings.button_label == blank -%}
+              <a
+                href="{{ block.settings.link }}"
+                class="ultramaison-banner-full-link"
+                aria-label="{{ block.settings.heading | default: 'Ver contenido' | escape }}"
+              ></a>
+            {%- endif -%}
           </div>
         </div>
       </div>

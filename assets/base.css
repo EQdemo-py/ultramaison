@@ -5060,3 +5060,24 @@ details-disclosure > details {
     box-shadow: 0 6px 20px rgba(13, 29, 79, .10) !important;
   }
 }
+/* =========================================================
+   ULTRAMAISON — BANNER COMPLETO CLICKEABLE
+   Enlace independiente del texto del botón
+   ========================================================= */
+
+.slideshow__slide {
+  position: relative;
+}
+
+.ultramaison-banner-full-link {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: block;
+  cursor: pointer;
+}
+
+/* En el editor de Shopify no bloquear la selección del bloque */
+.shopify-design-mode .ultramaison-banner-full-link {
+  pointer-events: none;
+}

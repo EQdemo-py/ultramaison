@@ -208,7 +208,12 @@
                       role="status"
                       {{ block.shopify_attributes }}
                     >
-                      REF. {{ product.selected_or_first_available_variant.sku }}
+                      {%- assign um_sku = product.selected_or_first_available_variant.sku | strip -%}
+                      {%- if um_sku contains 'REF.' or um_sku contains 'Ref.' or um_sku contains 'ref.' -%}
+                        {{ um_sku }}
+                      {%- else -%}
+                        REF. {{ um_sku }}
+                      {%- endif -%}
                     </div>
                   {%- endif -%}
                 {%- when 'custom_liquid' -%}

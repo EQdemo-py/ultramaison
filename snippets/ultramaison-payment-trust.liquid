@@ -1,17 +1,45 @@
 <div class="um-payment-trust">
+
   <div class="um-payment-trust__title">
     Formas de pago disponibles
   </div>
 
   <div class="um-payment-trust__methods">
-    {% for type in shop.enabled_payment_types %}
-      {{ type | payment_type_svg_tag: class: 'um-payment-trust__icon' }}
-    {% endfor %}
+
+    <div class="um-payment-logo">
+      {{ 'visa' | payment_type_svg_tag }}
+    </div>
+
+    <div class="um-payment-logo">
+      {{ 'master' | payment_type_svg_tag }}
+    </div>
+
+    <div class="um-payment-logo">
+      {{ 'american_express' | payment_type_svg_tag }}
+    </div>
+
+    {% if images['pse.svg'] %}
+      <div class="um-payment-logo um-payment-logo--custom">
+        {{ 'pse.svg' | asset_url | image_tag: alt: 'PSE' }}
+      </div>
+    {% endif %}
+
+    {% if images['nequi.svg'] %}
+      <div class="um-payment-logo um-payment-logo--custom">
+        {{ 'nequi.svg' | asset_url | image_tag: alt: 'Nequi' }}
+      </div>
+    {% endif %}
+
+    {% if images['addi.svg'] %}
+      <div class="um-payment-logo um-payment-logo--custom">
+        {{ 'addi.svg' | asset_url | image_tag: alt: 'Addi' }}
+      </div>
+    {% endif %}
+
   </div>
 
-  <div class="um-payment-trust__divider"></div>
-
   <div class="um-payment-trust__list">
+
     <div class="um-payment-trust__item">
       <span class="um-payment-trust__check">✓</span>
       <span>Productos originales</span>
@@ -26,5 +54,7 @@
       <span class="um-payment-trust__check">✓</span>
       <span>Compra segura y protegida</span>
     </div>
+
   </div>
+
 </div>

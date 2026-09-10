@@ -3525,3 +3525,43 @@ product-info {
   }
 }
 
+
+/* ULTRAMAISON — logos medios de pago */
+
+.um-payment-trust__methods {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: .8rem !important;
+  margin: .4rem 0 1.5rem !important;
+}
+
+.um-payment-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 3.2rem;
+  min-width: 4.8rem;
+
+  padding: .35rem .55rem;
+
+  background: #fff;
+  border: 1px solid rgba(13, 29, 79, .10);
+  border-radius: 6px;
+}
+
+.um-payment-logo svg {
+  width: auto !important;
+  height: 2rem !important;
+  max-width: 5rem !important;
+}
+
+.um-payment-logo--custom img {
+  display: block;
+  width: auto;
+  height: 2rem;
+  max-width: 5.8rem;
+  object-fit: contain;
+}
+

@@ -5081,3 +5081,6 @@ details-disclosure > details {
 .shopify-design-mode .ultramaison-banner-full-link {
   pointer-events: none;
 }
+.ultramaison-banner-full-link:empty {
+  display: block !important;
+}

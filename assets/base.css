@@ -5107,3 +5107,37 @@ details-disclosure > details {
     font-size: 11px !important;
   }
 }
+
+/* =========================================================
+   ULTRAMAISON — JERARQUÍA DE PRECIOS EN MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 749px) {
+
+  /* Precio promocional / actual */
+  .card-information .price-item--sale,
+  .card-information .price__regular .price-item--regular {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Precio anterior tachado */
+  .card-information .price__sale .price-item--regular {
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    color: #8a8a8a !important;
+    text-decoration-thickness: 1px !important;
+    opacity: 0.75 !important;
+    margin-right: 6px !important;
+  }
+
+  /* Separación limpia */
+  .card-information .price__sale {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+  }
+}

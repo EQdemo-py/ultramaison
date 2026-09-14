@@ -1033,3 +1033,222 @@
   }
 }
 
+
+/* ======================================================
+   ULTRAMAISON — FOOTER DESKTOP FINAL / MÁS PREMIUM
+   ====================================================== */
+
+@media screen and (min-width: 750px) {
+
+  .um-footer {
+    padding: 0 !important;
+  }
+
+  .um-footer__desktop {
+    width: 100% !important;
+    max-width: 1380px !important;
+    margin: 0 auto !important;
+
+    display: grid !important;
+    grid-template-columns:
+      minmax(240px, 1.15fr)
+      minmax(210px, .95fr)
+      minmax(300px, 1.25fr)
+      minmax(260px, 1fr) !important;
+
+    column-gap: clamp(5rem, 5vw, 8rem) !important;
+
+    padding:
+      8rem
+      clamp(4rem, 6vw, 8rem)
+      7rem !important;
+  }
+
+  /* LOGO */
+  .um-footer__logo {
+    width: 250px !important;
+    max-width: 100% !important;
+    margin: 0 0 3.4rem !important;
+  }
+
+  .um-footer__logo img {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* MARCA */
+  .um-footer__tagline {
+    margin: 0 0 2.8rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: .24em !important;
+    color: #fff !important;
+  }
+
+  .um-footer__brand-copy {
+    max-width: 34rem !important;
+    margin: 0 0 3rem !important;
+    font-size: 1.5rem !important;
+    line-height: 1.75 !important;
+    color: rgba(255,255,255,.72) !important;
+  }
+
+  /* TITULOS */
+  .um-footer__column h2 {
+    margin: 0 0 3.6rem !important;
+    font-size: 1.45rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: .15em !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+  }
+
+  /* MENU */
+  .um-footer__menu li {
+    margin: 0 0 2rem !important;
+  }
+
+  .um-footer__menu a {
+    font-size: 1.5rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255,255,255,.76) !important;
+  }
+
+  /* CONTACTO */
+  .um-footer__contact-item {
+    margin-bottom: 2.6rem !important;
+    gap: 1.5rem !important;
+
+    font-size: 1.45rem !important;
+    line-height: 1.7 !important;
+    color: rgba(255,255,255,.76) !important;
+  }
+
+  .um-footer__icon {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    flex: 0 0 2.2rem !important;
+  }
+
+  .um-footer__hours {
+    margin-top: 3.4rem !important;
+    padding-top: 3rem !important;
+  }
+
+  .um-footer__hours h3 {
+    margin-bottom: 1.8rem !important;
+    font-size: 1.15rem !important;
+  }
+
+  .um-footer__hours p {
+    margin: 1.2rem 0 !important;
+    font-size: 1.35rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* NEWSLETTER */
+  .um-footer__newsletter > p {
+    margin-bottom: 2.8rem !important;
+    font-size: 1.45rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .um-footer__newsletter-field {
+    min-height: 5.8rem !important;
+    grid-template-columns: 1fr 5.8rem !important;
+  }
+
+  .um-footer__newsletter-field input {
+    padding: 0 1.8rem !important;
+    font-size: 1.35rem !important;
+  }
+
+  .um-footer__newsletter-field button {
+    font-size: 2.3rem !important;
+  }
+
+  /* BENEFICIOS */
+  .um-footer__benefits--desktop {
+    margin-top: 3.8rem !important;
+    gap: 2.3rem !important;
+  }
+
+  .um-footer__benefits--desktop > div {
+    gap: 1.3rem !important;
+  }
+
+  .um-footer__benefits p {
+    font-size: 1.25rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .um-footer__benefits span {
+    font-size: 2.3rem !important;
+  }
+
+  /* REDES */
+  .um-footer__socials {
+    gap: 1rem !important;
+  }
+
+  .um-footer__socials .list-social__link {
+    padding: .8rem !important;
+  }
+
+  .um-footer__socials svg {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  /* FRANJA INFERIOR */
+  .um-footer__bottom {
+    width: 100% !important;
+    max-width: 1380px !important;
+    margin: 0 auto !important;
+
+    padding:
+      3.2rem
+      clamp(4rem, 6vw, 8rem) !important;
+
+    font-size: 1.15rem !important;
+  }
+
+}
+
+
+/* ELIMINAR SENSACIÓN DE TEXTO APAGADO */
+
+.um-footer__menu a:hover,
+.um-footer__contact-item:hover {
+  color: #ffffff !important;
+}
+
+
+/* WHATSAPP MÁS VISIBLE */
+
+.um-footer__icon--whatsapp {
+  color: #ffffff !important;
+}
+
+.um-footer__icon--whatsapp svg {
+  width: 2.3rem !important;
+  height: 2.3rem !important;
+}
+
+
+/* TABLET: mantener aire sin comprimir */
+
+@media screen and (min-width: 750px) and (max-width: 1050px) {
+
+  .um-footer__desktop {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5rem 7rem !important;
+    padding: 6rem 5rem !important;
+  }
+
+  .um-footer__logo {
+    width: 230px !important;
+  }
+
+}
+

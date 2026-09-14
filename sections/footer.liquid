@@ -38,106 +38,83 @@
 
   <div class="um-footer__desktop page-width">
 
-    <!-- MARCA -->
-    <div class="um-footer__brand">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'image' and block.settings.image != blank -%}
-          <div class="um-footer__logo">
-            <img
-              src="{{ block.settings.image | image_url: width: 700 }}"
-              alt="ULTRAMAISON"
-              loading="lazy"
-              width="{{ block.settings.image.width }}"
-              height="{{ block.settings.image.height }}"
-            >
-          </div>
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-
-      <p class="um-footer__tagline">
-        MÁS QUE RELOJES,<br>
-        UN ESTILO DE VIDA.
-      </p>
-
-      <p class="um-footer__brand-copy">
-        Relojes, moda y lifestyle exclusivo.<br>
-        Inspirados en quienes valoran cada detalle.
-      </p>
-
-      {%- if has_social_icons -%}
-        {% render 'social-icons', class: 'um-footer__socials' %}
+  <!-- MARCA -->
+  <div class="um-footer__brand">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'image' and block.settings.image != blank -%}
+        <div class="um-footer__logo">
+          <img
+            src="{{ block.settings.image | image_url: width: 700 }}"
+            alt="ULTRAMAISON"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+          >
+        </div>
+        {%- break -%}
       {%- endif -%}
-    </div>
+    {%- endfor -%}
 
-    <!-- ATENCION -->
-    <div class="um-footer__column">
-      <h2>ATENCIÓN AL CLIENTE</h2>
+    <p class="um-footer__tagline">
+      MÁS QUE RELOJES.<br>
+      UN ESTILO DE VIDA.
+    </p>
 
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'link_list' and block.settings.menu != blank -%}
-          <ul class="um-footer__menu list-unstyled">
-            {%- for link in block.settings.menu.links -%}
-              <li>
-                <a href="{{ link.url }}">{{ link.title | escape }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-          {%- break -%}
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+    {%- if has_social_icons -%}
+      {% render 'social-icons', class: 'um-footer__socials' %}
+    {%- endif -%}
+  </div>
 
-    <!-- CONTACTO -->
-    <div class="um-footer__column um-footer__contact">
-      <h2>ESTAMOS PARA AYUDARTE</h2>
 
-      <div class="um-footer__contact-item">
-        <span class="um-footer__icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 21s7-6.2 7-12A7 7 0 1 0 5 9c0 5.8 7 12 7 12Z"/>
-            <circle cx="12" cy="9" r="2.4"/>
-          </svg>
-        </span>
-        <span>Calle 79B #75-236<br>Medellín 050034, Antioquia, Colombia</span>
-      </div>
+  <!-- ATENCIÓN -->
+  <div class="um-footer__column">
+    <h2>ATENCIÓN AL CLIENTE</h2>
 
-      <a class="um-footer__contact-item" href="https://wa.me/573019348786" target="_blank" rel="noopener">
-        <span class="um-footer__icon um-footer__icon--whatsapp">
-          <svg viewBox="0 0 32 32" aria-hidden="true">
-            <path fill="currentColor" d="M19.11 17.35c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.35-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.98 2.62 1.11 2.8.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.55.57.65.21 1.25.18 1.72.11.52-.08 1.6-.66 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
-            <path fill="currentColor" d="M16.03 3C8.85 3 3.03 8.81 3.03 15.98c0 2.29.6 4.52 1.73 6.49L3 29l6.69-1.75a12.9 12.9 0 0 0 6.34 1.61h.01c7.17 0 12.99-5.82 12.99-12.98C29.03 8.81 23.21 3 16.03 3zm0 23.67h-.01a10.72 10.72 0 0 1-5.47-1.5l-.39-.23-3.97 1.04 1.06-3.87-.25-.4a10.75 10.75 0 1 1 9.03 4.96z"/>
-          </svg>
-        </span>
-        <span>WhatsApp: +57 301 934 8786</span>
-      </a>
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'link_list' and block.settings.menu != blank -%}
+        <ul class="um-footer__menu list-unstyled">
+          {%- for link in block.settings.menu.links -%}
+            <li>
+              <a href="{{ link.url }}">{{ link.title | escape }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
 
-      <div class="um-footer__contact-item">
-        <span class="um-footer__icon">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/>
-            <circle cx="7" cy="18" r="2"/>
-            <circle cx="18" cy="18" r="2"/>
-          </svg>
-        </span>
-        <span>Envíos a toda Colombia</span>
-      </div>
 
-      <div class="um-footer__hours">
-        <h3>HORARIO DE ATENCIÓN</h3>
-        <p>Lunes a viernes: 9:00 a. m. – 6:00 p. m.</p>
-        <p>Sábados: 9:00 a. m. – 2:00 p. m.</p>
-      </div>
-    </div>
+  <!-- CONTACTO -->
+  <div class="um-footer__column um-footer__contact-simple">
+    <h2>ESTAMOS PARA AYUDARTE</h2>
 
-    <!-- NEWSLETTER -->
-    <div class="um-footer__column um-footer__newsletter">
-      <h2>SUSCRÍBETE</h2>
+    <p class="um-footer__city">
+      Medellín, Colombia
+    </p>
 
-      <p>
-        Recibe novedades, lanzamientos<br>
-        y promociones exclusivas.
-      </p>
+    <a
+      class="um-footer__whatsapp"
+      href="https://wa.me/573019348786"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="um-footer__icon um-footer__icon--whatsapp">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path fill="currentColor" d="M19.11 17.35c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.35-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.98 2.62 1.11 2.8.14.18 1.92 2.93 4.65 4.11.65.28 1.16.45 1.55.57.65.21 1.25.18 1.72.11.52-.08 1.6-.66 1.83-1.29.23-.64.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z"/>
+          <path fill="currentColor" d="M16.03 3C8.85 3 3.03 8.81 3.03 15.98c0 2.29.6 4.52 1.73 6.49L3 29l6.69-1.75a12.9 12.9 0 0 0 6.34 1.61h.01c7.17 0 12.99-5.82 12.99-12.98C29.03 8.81 23.21 3 16.03 3zm0 23.67h-.01a10.72 10.72 0 0 1-5.47-1.5l-.39-.23-3.97 1.04 1.06-3.87-.25-.4a10.75 10.75 0 1 1 9.03 4.96z"/>
+        </svg>
+      </span>
+
+      <span>+57 301 934 8786</span>
+    </a>
+
+    <p class="um-footer__shipping">
+      Envíos a toda Colombia
+    </p>
+
+    <div class="um-footer__newsletter-simple">
+      <h3>RECIBE NOVEDADES</h3>
 
       {%- form 'customer', id: 'UltraMaisonFooterNewsletter', class: 'um-footer__form' -%}
         <input type="hidden" name="contact[tags]" value="newsletter">
@@ -148,154 +125,128 @@
             name="contact[email]"
             value="{{ form.email }}"
             placeholder="Tu correo electrónico"
-            aria-label="Tu correo electrónico"
             required
           >
           <button type="submit" aria-label="Suscribirse">→</button>
         </div>
       {%- endform -%}
-
-      <div class="um-footer__benefits um-footer__benefits--desktop">
-        <div>
-          <span>◇</span>
-          <p>Compra segura</p>
-        </div>
-
-        <div>
-          <span>▭</span>
-          <p>Múltiples medios<br>de pago</p>
-        </div>
-
-        <div>
-          <span>▱</span>
-          <p>Envíos a todo<br>el país</p>
-        </div>
-      </div>
     </div>
+  </div>
+
+</div>
+
+
+<!-- MOBILE -->
+
+<div class="um-footer__mobile">
+
+  <div class="um-footer__mobile-brand">
+
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'image' and block.settings.image != blank -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 500 }}"
+          alt="ULTRAMAISON"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+        >
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    <p>MÁS QUE RELOJES. UN ESTILO DE VIDA.</p>
+
+    {%- if has_social_icons -%}
+      {% render 'social-icons', class: 'um-footer__socials' %}
+    {%- endif -%}
 
   </div>
 
 
-  <!-- MOBILE -->
-  <div class="um-footer__mobile">
+  <details class="um-footer__accordion">
 
-    <div class="um-footer__mobile-brand">
+    <summary>
+      <span>Atención al cliente</span>
+      <span>+</span>
+    </summary>
+
+    <div class="um-footer__accordion-content">
+
       {%- for block in section.blocks -%}
-        {%- if block.type == 'image' and block.settings.image != blank -%}
-          <img
-            src="{{ block.settings.image | image_url: width: 500 }}"
-            alt="ULTRAMAISON"
-            loading="lazy"
-            width="{{ block.settings.image.width }}"
-            height="{{ block.settings.image.height }}"
-          >
+        {%- if block.type == 'link_list' and block.settings.menu != blank -%}
+
+          <ul class="list-unstyled">
+
+            {%- for link in block.settings.menu.links -%}
+
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title | escape }}
+                </a>
+              </li>
+
+            {%- endfor -%}
+
+          </ul>
+
           {%- break -%}
+
         {%- endif -%}
       {%- endfor -%}
 
-      <p>MÁS QUE RELOJES, UN ESTILO DE VIDA</p>
-
-      {%- if has_social_icons -%}
-        {% render 'social-icons', class: 'um-footer__socials' %}
-      {%- endif -%}
     </div>
 
-
-    <details class="um-footer__accordion">
-      <summary>
-        <span>Atención al cliente</span>
-        <span>+</span>
-      </summary>
-
-      <div class="um-footer__accordion-content">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'link_list' and block.settings.menu != blank -%}
-            <ul class="list-unstyled">
-              {%- for link in block.settings.menu.links -%}
-                <li>
-                  <a href="{{ link.url }}">{{ link.title | escape }}</a>
-                </li>
-              {%- endfor -%}
-            </ul>
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </details>
+  </details>
 
 
-    <details class="um-footer__accordion">
-      <summary>
-        <span>Estamos para ayudarte</span>
-        <span>+</span>
-      </summary>
+  <div class="um-footer__mobile-contact">
 
-      <div class="um-footer__accordion-content">
-        <p>Calle 79B #75-236, Medellín 050034, Antioquia, Colombia</p>
+    <p>Medellín, Colombia</p>
 
-        <p>
-          <a href="https://wa.me/573019348786" target="_blank" rel="noopener">
-            WhatsApp: +57 301 934 8786
-          </a>
-        </p>
+    <a
+      href="https://wa.me/573019348786"
+      target="_blank"
+      rel="noopener"
+    >
+      WhatsApp · +57 301 934 8786
+    </a>
 
-        <p>Envíos a toda Colombia</p>
-
-        <strong>Horario de atención</strong>
-        <p>Lunes a viernes: 9:00 a. m. – 6:00 p. m.</p>
-        <p>Sábados: 9:00 a. m. – 2:00 p. m.</p>
-      </div>
-    </details>
-
-
-    <details class="um-footer__accordion">
-      <summary>
-        <span>Suscríbete</span>
-        <span>+</span>
-      </summary>
-
-      <div class="um-footer__accordion-content">
-        <p>Recibe novedades, lanzamientos y promociones exclusivas.</p>
-
-        {%- form 'customer', id: 'UltraMaisonFooterNewsletterMobile', class: 'um-footer__form' -%}
-          <input type="hidden" name="contact[tags]" value="newsletter">
-
-          <div class="um-footer__newsletter-field">
-            <input
-              type="email"
-              name="contact[email]"
-              value="{{ form.email }}"
-              placeholder="Tu correo electrónico"
-              required
-            >
-            <button type="submit" aria-label="Suscribirse">→</button>
-          </div>
-        {%- endform -%}
-      </div>
-    </details>
-
-
-    <div class="um-footer__benefits">
-      <div>
-        <span>◇</span>
-        <p>Compra<br>segura</p>
-      </div>
-
-      <div>
-        <span>▭</span>
-        <p>Múltiples medios<br>de pago</p>
-      </div>
-
-      <div>
-        <span>▱</span>
-        <p>Envíos a<br>todo el país</p>
-      </div>
-    </div>
+    <p>Envíos a toda Colombia</p>
 
   </div>
 
 
-  <!-- BOTTOM -->
+  <div class="um-footer__mobile-newsletter">
+
+    <p>Recibe novedades y lanzamientos</p>
+
+    {%- form 'customer', id: 'UltraMaisonFooterNewsletterMobile', class: 'um-footer__form' -%}
+
+      <input type="hidden" name="contact[tags]" value="newsletter">
+
+      <div class="um-footer__newsletter-field">
+
+        <input
+          type="email"
+          name="contact[email]"
+          value="{{ form.email }}"
+          placeholder="Tu correo electrónico"
+          required
+        >
+
+        <button type="submit" aria-label="Suscribirse">→</button>
+
+      </div>
+
+    {%- endform -%}
+
+  </div>
+
+</div>
+
+
+<!-- BOTTOM -->
   <div class="um-footer__bottom page-width">
 
     <div class="um-footer__copyright">

@@ -1252,3 +1252,172 @@
 
 }
 
+
+
+/* =========================================================
+   ULTRAMAISON — FOOTER MINIMAL LUXURY
+   ========================================================= */
+
+@media screen and (min-width: 750px) {
+
+  .um-footer__desktop {
+    max-width: 1240px !important;
+    margin: 0 auto !important;
+
+    grid-template-columns:
+      minmax(240px, 1fr)
+      minmax(220px, .8fr)
+      minmax(320px, 1.15fr) !important;
+
+    gap: clamp(6rem, 8vw, 11rem) !important;
+
+    padding:
+      7rem
+      clamp(3rem, 5vw, 6rem)
+      6.5rem !important;
+  }
+
+
+  /* MARCA */
+
+  .um-footer__logo {
+    width: 220px !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .um-footer__tagline {
+    margin-bottom: 2.6rem !important;
+    font-size: 1.25rem !important;
+    line-height: 1.7 !important;
+  }
+
+
+  /* TITULOS */
+
+  .um-footer__column h2 {
+    margin-bottom: 3rem !important;
+    font-size: 1.3rem !important;
+  }
+
+
+  /* MENU */
+
+  .um-footer__menu li {
+    margin-bottom: 1.8rem !important;
+  }
+
+  .um-footer__menu a {
+    font-size: 1.45rem !important;
+  }
+
+
+  /* CONTACTO SIMPLE */
+
+  .um-footer__contact-simple {
+    max-width: 38rem;
+  }
+
+  .um-footer__city,
+  .um-footer__shipping {
+    margin: 0 0 1.8rem;
+    font-size: 1.4rem;
+    color: rgba(255,255,255,.72);
+  }
+
+  .um-footer__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 1.8rem;
+
+    color: #fff !important;
+    font-size: 1.45rem;
+  }
+
+  .um-footer__newsletter-simple {
+    margin-top: 3.5rem;
+    padding-top: 3rem;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+
+  .um-footer__newsletter-simple h3 {
+    margin: 0 0 1.5rem;
+
+    font-size: 1.05rem;
+    letter-spacing: .16em;
+
+    color: rgba(255,255,255,.7);
+  }
+
+  .um-footer__newsletter-field {
+    max-width: 34rem;
+  }
+
+
+  /* ELIMINAR ELEMENTOS ANTIGUOS */
+
+  .um-footer__brand-copy,
+  .um-footer__benefits,
+  .um-footer__hours {
+    display: none !important;
+  }
+
+}
+
+
+/* MOBILE MÁS LIMPIO */
+
+@media screen and (max-width: 749px) {
+
+  .um-footer__mobile-brand {
+    padding: 4rem 2rem 3rem !important;
+  }
+
+  .um-footer__mobile-brand img {
+    width: 180px !important;
+  }
+
+  .um-footer__mobile-contact {
+    padding: 2.5rem 2rem;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+
+  .um-footer__mobile-contact p {
+    margin: .8rem 0;
+
+    font-size: 1.15rem;
+
+    color: rgba(255,255,255,.65);
+  }
+
+  .um-footer__mobile-contact a {
+    display: block;
+
+    margin: 1rem 0;
+
+    color: #fff;
+
+    font-size: 1.25rem;
+  }
+
+  .um-footer__mobile-newsletter {
+    padding: 0 2rem 3rem;
+
+    text-align: center;
+  }
+
+  .um-footer__mobile-newsletter > p {
+    margin: 0 0 1.5rem;
+
+    font-size: 1.15rem;
+
+    color: rgba(255,255,255,.65);
+  }
+
+}
+

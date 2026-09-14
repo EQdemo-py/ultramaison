@@ -199,3 +199,110 @@ slideshow-component:not(.page-width) .slider-buttons {
   opacity: 0;
   transform: scale(0.8);
 }
+
+/* ======================================================
+   ULTRAMAISON — SLIDESHOW PREMIUM SIN PAGINACION
+   ====================================================== */
+
+slideshow-component {
+  position: relative;
+}
+
+/* Eliminamos contador / puntos */
+slideshow-component .slider-counter,
+slideshow-component .slider-counter--dots,
+slideshow-component .slider-counter__link {
+  display: none !important;
+}
+
+/* Eliminamos la franja inferior */
+slideshow-component .slideshow__controls {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 5 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  border: 0 !important;
+  background: transparent !important;
+
+  pointer-events: none !important;
+}
+
+/* Flechas flotantes sobre el banner */
+slideshow-component .slideshow__controls .slider-button {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 4.4rem !important;
+  height: 4.4rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1px solid rgba(255,255,255,.25) !important;
+  border-radius: 50% !important;
+
+  background: rgba(0,0,0,.25) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  color: #fff !important;
+
+  pointer-events: auto !important;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    opacity .2s ease !important;
+}
+
+slideshow-component .slideshow__controls .slider-button:hover {
+  background: rgba(0,0,0,.48) !important;
+  border-color: rgba(255,255,255,.55) !important;
+}
+
+/* Flecha izquierda */
+slideshow-component .slideshow__controls .slider-button--prev {
+  left: 2.4rem !important;
+}
+
+/* Flecha derecha */
+slideshow-component .slideshow__controls .slider-button--next {
+  right: 2.4rem !important;
+}
+
+/* Íconos */
+slideshow-component .slideshow__controls .slider-button svg {
+  width: 1.6rem !important;
+  height: 1.6rem !important;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 749px) {
+
+  slideshow-component .slideshow__controls .slider-button {
+    width: 3.6rem !important;
+    height: 3.6rem !important;
+
+    background: rgba(0,0,0,.3) !important;
+  }
+
+  slideshow-component .slideshow__controls .slider-button--prev {
+    left: 1rem !important;
+  }
+
+  slideshow-component .slideshow__controls .slider-button--next {
+    right: 1rem !important;
+  }
+
+  slideshow-component .slideshow__controls .slider-button svg {
+    width: 1.3rem !important;
+    height: 1.3rem !important;
+  }
+
+}
+

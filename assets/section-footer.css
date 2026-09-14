@@ -915,3 +915,121 @@
 
 }
 
+
+/* ======================================================
+   ULTRAMAISON — FOOTER DESKTOP REFINEMENT
+   ====================================================== */
+
+@media screen and (min-width: 1101px) {
+
+  .um-footer__desktop {
+    grid-template-columns:
+      minmax(210px, 1.15fr)
+      minmax(170px, .9fr)
+      minmax(260px, 1.25fr)
+      minmax(220px, 1fr) !important;
+
+    gap: clamp(2.8rem, 3.2vw, 4.8rem) !important;
+
+    padding-top: 7.5rem !important;
+    padding-bottom: 7rem !important;
+
+    align-items: start;
+  }
+
+  /* Marca */
+  .um-footer__logo {
+    width: 210px !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .um-footer__tagline {
+    margin-bottom: 2.4rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .um-footer__brand-copy {
+    max-width: 31rem !important;
+    line-height: 1.8 !important;
+  }
+
+  /* Títulos */
+  .um-footer__column h2 {
+    margin-bottom: 3.2rem !important;
+    font-size: 1.25rem !important;
+    letter-spacing: .16em !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Menú */
+  .um-footer__menu li {
+    margin-bottom: 1.7rem !important;
+  }
+
+  .um-footer__menu a {
+    font-size: 1.35rem !important;
+    line-height: 1.4 !important;
+    white-space: nowrap;
+  }
+
+  /* Contacto */
+  .um-footer__contact-item {
+    gap: 1.4rem !important;
+    margin-bottom: 2.2rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .um-footer__hours {
+    margin-top: 3rem !important;
+    padding-top: 2.8rem !important;
+  }
+
+  .um-footer__hours p {
+    margin: 1rem 0 !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Newsletter */
+  .um-footer__newsletter > p {
+    margin-bottom: 2.4rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .um-footer__newsletter-field {
+    min-height: 5.4rem !important;
+  }
+
+  .um-footer__benefits--desktop {
+    margin-top: 3.4rem !important;
+    gap: 1.8rem !important;
+  }
+
+  /* Barra inferior */
+  .um-footer__bottom {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+
+/* WHATSAPP OFICIAL */
+
+.um-footer__icon--whatsapp {
+  color: #ffffff;
+}
+
+.um-footer__icon--whatsapp svg {
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+
+/* Evitar saltos innecesarios en enlaces largos */
+
+@media screen and (min-width: 1101px) {
+  .um-footer__menu {
+    min-width: max-content;
+  }
+}
+

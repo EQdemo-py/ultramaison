@@ -306,3 +306,13 @@ slideshow-component .slideshow__controls .slider-button svg {
 
 }
 
+
+/* ======================================================
+   ULTRAMAISON — OCULTAR PLAY / PAUSA DEL AUTOPLAY
+   ====================================================== */
+
+slideshow-component .slideshow__autoplay,
+slideshow-component button.slideshow__autoplay {
+  display: none !important;
+}
+

@@ -316,3 +316,24 @@ slideshow-component button.slideshow__autoplay {
   display: none !important;
 }
 
+
+/* ======================================================
+   ULTRAMAISON — OCULTAR DEFINITIVAMENTE PLAY / PAUSA
+   ====================================================== */
+
+slideshow-component .slideshow__controls button.slideshow__autoplay.slider-button,
+slideshow-component .slideshow__controls .slideshow__autoplay.slider-button,
+slideshow-component button.slideshow__autoplay {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+

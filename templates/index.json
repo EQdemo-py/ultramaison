@@ -30,10 +30,30 @@
             "text_alignment_mobile": "left",
             "color_scheme": "scheme-1"
           }
+        },
+        "slide_FK49bF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/AQUA_CUADRAN_DESK.webp",
+            "mobile_image": "shopify://shop_images/AQUA_CUADRAN_MOB.webp",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "https://demoreloj.myshopify.com/pages/technomarine?pb=0",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-1"
+          }
         }
       },
       "block_order": [
-        "slide-0"
+        "slide-0",
+        "slide_FK49bF"
       ],
       "name": "BANNERS PRINCIPAL",
       "settings": {

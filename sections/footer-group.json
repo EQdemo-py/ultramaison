@@ -14,33 +14,33 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "image_mN6hyn": {
+        "image_Er89Df": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Diseno_sin_titulo_17.png",
-            "image_width": 150,
+            "image": "shopify://shop_images/ChatGPT_Image_14_sept_2026_08_57_40_a.m..png",
+            "image_width": 400,
             "alignment": ""
           }
         },
         "link_list_UACbit": {
           "type": "link_list",
           "settings": {
-            "heading": "Enlaces rápidos",
-            "menu": "customer-account-main-menu"
+            "heading": "Atención al cliente",
+            "menu": "footer"
           }
         },
-        "text_nHDppP": {
+        "text_PFzrky": {
           "type": "text",
           "settings": {
-            "heading": "Encabezado",
-            "subtext": "<p>Comparte la información de contacto, los detalles de la tienda y el contenido de la marca con tus clientes.</p>"
+            "heading": "Estamos para ayudarte.",
+            "subtext": "<h6> Calle 79B #75-236, Medellín 050034, Antioquia, Colombia<br/><br/>📱 WhatsApp: +57 301 934 8786<br/><br/>🚚 Envíos a toda Colombia</h6><h6><strong>Horario de atención</strong><br/><br/>Lunes a viernes: 9:00 a. m. – 6:00 p. m.<br/><br/>Sábados: 9:00 a. m. – 2:00 p. m.</h6>"
           }
         }
       },
       "block_order": [
-        "image_mN6hyn",
+        "image_Er89Df",
         "link_list_UACbit",
-        "text_nHDppP"
+        "text_PFzrky"
       ],
       "settings": {
         "color_scheme": "scheme-3",
